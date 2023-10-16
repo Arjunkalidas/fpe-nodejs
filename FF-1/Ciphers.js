@@ -1,5 +1,5 @@
 const crypto = require('crypto');
-const commonUtils = require('./CommonUtils');
+const commonUtils = require('./common-utils/CommonUtils');
 
 let mAesEcbCipher = null;
 let mAesCbcCipher = null;
