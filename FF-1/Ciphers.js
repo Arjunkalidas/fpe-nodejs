@@ -1,3 +1,6 @@
+'use strict';
+
+
 const crypto = require('crypto');
 
 let mAesEcbCipher = null;
