@@ -1,4 +1,4 @@
-
+'use strict';
 
 class charMap {
 
@@ -12,4 +12,4 @@ class charMap {
     }
 }
 
-module.exports - charMap;
+module.exports = charMap;
