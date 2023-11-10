@@ -1,13 +1,10 @@
 const crypto = require('crypto');
-const commonUtils = require('./common-utils/CommonUtils');
 
 let mAesEcbCipher = null;
 let mAesCbcCipher = null;
 const MAX_LEN = 4096;
 
 class Ciphers {
-
-    commonUtils = new commonUtils();
 
     prf_encrypt(secretKey, plainText) {
         // validate key

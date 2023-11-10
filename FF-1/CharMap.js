@@ -1,6 +1,6 @@
 'use strict';
 
-class charMap {
+class CharMap {
 
     convertToMap(charArray) {
         let map = new Map();
@@ -12,4 +12,4 @@ class charMap {
     }
 }
 
-module.exports = charMap;
+module.exports = CharMap;

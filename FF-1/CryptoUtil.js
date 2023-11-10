@@ -1,7 +1,7 @@
 'use strict';
 
 const FF1 = require('./FF1');
-const charMap = require('./CharMap');
+const CharMap = require('./CharMap');
 const crypto = require('crypto');
 
 let keyByteArr = ''
@@ -12,6 +12,8 @@ let RADIX = 10;
 let key = '';
 let sec;
 let TWEAK = '';
+
+const charMap = new CharMap();
 
 class CryptoUtil {
 
@@ -46,12 +48,14 @@ class CryptoUtil {
     }
 
     getAlphanumericCharacters() {
-        let charArray = ['0', '1', '2']
+        let charArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+                        'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f',
+                        'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
         return charArray;
     }
 
     getNumericCharacters() {
-        let numArray = ['0', '1'];
+        let numArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
         return numArray
     }
 
