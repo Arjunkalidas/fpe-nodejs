@@ -78,6 +78,7 @@ class CommonUtils {
         }
 
         const num = x;
+        // TODO: filling the rest of the function for byteArray conversion of plaintext
     }
 
     mod(x, m) {
