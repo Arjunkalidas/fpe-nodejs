@@ -1,2 +1,32 @@
-# fpe-nodejs
-This is a repository for format preserving encryption in FF-1 mode written in Javascript
+# fpe-nodejs (FF1 mode)
+
+## Background
+This is a repository for format preserving encryption in FF-1 mode written in Nodejs (Javascript)
+
+We have used the NIST recommended specifications and guidelines to create a Javascript equivalent of this library. There are implementations out there in Java for FF1 & FF3, and Nodejs for FF3 mode, but none for FF1 mode in Nodejs, hence we decided to create this repo.
+
+To read more on NIST's FPE documents, head here -> https://csrc.nist.gov/pubs/sp/800/38/g/upd1/final
+
+To refer the specifications in detail, please use this document -> https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38G.pdf
+
+## Introduction
+A block cipher mode of operation, commonly known as a mode, is an algorithm designed for the cryptographic transformation of data based on a block cipher. Traditional encryption modes operate on binary data, where inputs and outputs are bit strings consisting of ones and zeros. However, when dealing with non-binary symbol sequences, such as Social Security numbers (SSN), the existing modes may fail to maintain the original format, posing challenges when converting back to the desired data type.
+
+Format-preserving encryption (FPE) addresses this issue, specifically catering to non-binary data. It transforms data formatted as a sequence of symbols in such a way that the encrypted data preserves the original format, including length. For instance, FPE can encrypt an SSN, maintaining it as a sequence of nine decimal digits. This capability proves valuable in scenarios where conventional encryption modes are impractical, such as legacy applications that cannot accommodate changes to data field lengths or formats.
+
+FPE serves various cryptographic purposes, including securing financial information, data sanitization, and transparently encrypting fields in legacy databases. Two FPE modes outlined in this publication, FF1 and FF3, are format-preserving, Feistel-based encryption modes. FF3, equivalent to the BPS-BC component of BPS, is particularly relevant to legacy databases, instantiated with a 128-bit block cipher. Notably, FF2, initially included in the publication, was removed due to concerns about its expected security strength.
+
+These FPE modes fit within the larger FFX framework, submitted to NIST for constructing FPE mechanisms. Although FF1 and FF3 are not explicitly presented as instantiations of FFX parameter sets in this publication, they each employ the Feistel structure and incorporate different Feistel round functions derived from the Advanced Encryption Standard (AES) algorithm.
+
+In addition to formatted data, each FPE mode considers an additional input known as the "tweak," a changeable part of the key determining encryption and decryption functions. Tweaks play a crucial role, especially when the possible values for confidential data are limited. FF1 and FF3 offer distinct performance advantages, with FF1 supporting a broader range of protected data lengths and tweak flexibility, while FF3 achieves higher throughput due to its lower round count.
+
+## How to use
+## coming soon...
+
+
+## Future updates
+- The library supports numbers, alphanumeric and alphabets as input and tweak, but that could be expanded to support a limited set of special characters
+- The encryption mode used is AES ECB, but planning to support CBC mode soon
+
+## License
+Apache 2.0
