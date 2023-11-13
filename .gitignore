@@ -3,7 +3,6 @@
 *.tmp
 package-lock.json
 /coverage/
-*.pem
 
 .vscode/*
 .vscode

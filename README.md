@@ -27,6 +27,7 @@ In addition to formatted data, each FPE mode considers an additional input known
 ## Future updates
 - The library supports numbers, alphanumeric and alphabets as input and tweak, but that could be expanded to support a limited set of special characters
 - The encryption mode used is AES ECB, but planning to support CBC mode soon
+- Option to use different encryption modes such as FF1 & FF3, or ECB, CBC with/without padding are ideas for enhancement
 
 ## License
 Apache 2.0
