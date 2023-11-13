@@ -8,12 +8,13 @@ let tweak = ""
 const plainText = "text to encrypt";
 console.log("plain Text input :: ",plainText);
 
+// initialize crypto util by creating an instance and passing the key & tweak to the constructor
 const encryptDecryptUtil = new cryptoUtil(key, tweak);
-
+// call the invoke method and pass the data to encrypt
 const cipherText = encryptDecryptUtil.encrypt(plainText);
 
 console.log("cipher text :: ",cipherText);
-
+// re-use the crypto util object to invoke the decrypt method
 const decryptedText = cryptoUtil.decrypt(key, cipherText);
 
 console.log("decryptedText :: ", decryptedText);

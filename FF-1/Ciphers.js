@@ -4,6 +4,7 @@
 const crypto = require('crypto');
 
 let mAesEcbCipher = null;
+// CBC cipher encryption is to be implemented and tested as part of enhancement
 let mAesCbcCipher = null;
 const MAX_LEN = 4096;
 

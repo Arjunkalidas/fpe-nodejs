@@ -25,10 +25,12 @@ class CommonUtils {
         return newArr;
     }
 
+    // Copy the objects of an array and create a new array
     arrayCopy(src, srcIndex, dest, destIndex, length) {
         dest.splice(destIndex, length, ...src.slice(srcIndex, srcIndex + length));
     }
 
+    // returns the XOR value of X and Y
     xor(X, Y) {
         // validate X
         if(!X || X == NaN) {

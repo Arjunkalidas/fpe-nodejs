@@ -47,6 +47,7 @@ class CryptoUtil {
         return ff1String.decrypt(keyByteArr, TWEAK, cipherText, radix, updatedCharMap);
     }
 
+    // This could be converted to pick chars based on the char code instead of writing out each alphabet and number
     getAlphanumericCharacters() {
         let charArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
                         'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f',
