@@ -31,12 +31,10 @@ let tweak = ""
 // maximum length of plain text cannot exceed 4096
 const plainText = "text to encrypt";
 
-// initialize crypto util by creating an instance and passing the key & tweak to the constructor
 const encryptDecryptUtil = new cryptoUtil(key, tweak);
-// call the invoke method and pass the data to encrypt
+
 const cipherText = encryptDecryptUtil.encrypt(plainText);
 
-// invoke the decrypt method using the crypto util object
 const decryptedText = cryptoUtil.decrypt(key, cipherText);
 ```
 ## coming soon...
