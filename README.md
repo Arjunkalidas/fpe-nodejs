@@ -21,7 +21,7 @@ These FPE modes fit within the larger FFX framework, submitted to NIST for const
 In addition to formatted data, each FPE mode considers an additional input known as the "tweak," a changeable part of the key determining encryption and decryption functions. Tweaks play a crucial role, especially when the possible values for confidential data are limited. FF1 and FF3 offer distinct performance advantages, with FF1 supporting a broader range of protected data lengths and tweak flexibility, while FF3 achieves higher throughput due to its lower round count.
 
 ## How to use
-`
+```
 const cryptoUtil = require('./FF-1/CryptoUtil');
 
 let key = "base64 encoded key here";
@@ -38,7 +38,7 @@ const cipherText = encryptDecryptUtil.encrypt(plainText);
 
 // invoke the decrypt method using the crypto util object
 const decryptedText = cryptoUtil.decrypt(key, cipherText);
-`
+```
 ## coming soon...
 
 
