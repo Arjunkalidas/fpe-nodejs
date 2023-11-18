@@ -1,6 +1,6 @@
 'use strict';
 
-const FF1 = require('./FF1');
+const FPEncryption = require('./FPEncryption');
 const CharMap = require('./CharMap');
 const crypto = require('crypto');
 
@@ -26,7 +26,7 @@ class CryptoUtil {
         updatedCharMap = charMap.convertToMap(this.getNumericCharacters());
 
         TWEAK = tweak;
-        ff1String = new FF1(secretKey, TWEAK, maxTlen);
+        ff1String = new FPEncryption(secretKey, TWEAK, maxTlen);
     }
 
     encrypt(plainText) {
@@ -34,11 +34,10 @@ class CryptoUtil {
         plainText = this.sanitizeTextInput(plainText);
         // sanitized text is used to find the radix
         let radix = this.getRadix(plainText);
-
         return ff1String.encrypt(sec, TWEAK, plainText, radix, updatedCharMap);
     }
 
-    decrypt(secretKey, cipherText) {
+    decrypt(cipherText) {
         // sanitize the cipher text
         cipherText = this.sanitizeTextInput(cipherText);
         // sanitized cipher text is used to find the radix

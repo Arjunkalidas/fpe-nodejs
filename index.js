@@ -15,6 +15,6 @@ const cipherText = encryptDecryptUtil.encrypt(plainText);
 
 console.log("cipher text :: ",cipherText);
 // re-use the crypto util object to invoke the decrypt method
-const decryptedText = cryptoUtil.decrypt(key, cipherText);
+const decryptedText = encryptDecryptUtil.decrypt(cipherText);
 
 console.log("decryptedText :: ", decryptedText);

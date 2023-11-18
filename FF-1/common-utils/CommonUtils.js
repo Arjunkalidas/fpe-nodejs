@@ -80,7 +80,37 @@ class CommonUtils {
         }
 
         const num = x;
-        // TODO: filling the rest of the function for byteArray conversion of plaintext
+        
+        //convert the number num to its binary representation as a string.
+        const binary = num.toString(2);
+
+        //pad the binary string with leading zeroes to ensure it has a length that is a multiple of 8. This is necesary because each byte consists of 8 bits.
+        const paddedBinary = binary.padStart(Math.ceil(binary.length / 8) * 8, '0');
+
+        //split the padded binary string into an array of substrings, each representing a byte (8 bits).
+        const bytes = paddedBinary.match(/.{1,8}/g);
+
+        //convert each binary byte string to its decimal equivalent using parseInt() with a base of 2.
+        const decimalBytes = bytes.map(byte => parseInt(byte, 2));
+
+        //create a new array called data with the same length as the decimalBytes array.
+        const data = new Array(decimalBytes.length);
+
+        //to get -ve values
+        for(let i = decimalBytes.length - 1; i>=0; i--){
+            let value = decimalBytes[i];
+            if(256 - value <= value){
+                value = value - 256;
+            }
+            data[i] = value;
+        }
+        
+        let filledArray = Array(s).fill(0);
+
+        filledArray = filledArray.concat(data);
+        let arr = new Int8Array(s);
+        arr = filledArray.slice(-s);
+        return arr;
     }
 
     mod(x, m) {
@@ -110,14 +140,14 @@ class CommonUtils {
 
     modBigInt(x, m) {
         // validate x
-        if (!x || x == NaN || x == null) {
-            throw ("x must be a valid number");
-        }
+        //if (!x || x == NaN || x == null) {
+           // throw ("x must be a valid number: ", x);
+        //}
 
         // validate m
-        if (!m || m == NaN || m == null) {
-            throw ("m must be a valid number");
-        }
+       // if (!m || m == NaN || m == null) {
+       //     throw ("m must be a valid number:", m);
+       // }
 
         let n = parseInt(m);
 
@@ -180,7 +210,7 @@ class CommonUtils {
             x = (x * r) + (BigInt(X[i] & 0xFF));
         }
         
-        return X.toString();
+        return x.toString();
     }
 
     str(x, radix, m) {
@@ -205,6 +235,40 @@ class CommonUtils {
             x = BigInt(x) / BigInt(radix);
         }
         return X;
+    }
+
+    convertStringToRadixedIntArray(charArray, charMap){
+        let plainTextIntArray = new Array(charArray.length);
+        let allowedCharMap = charMap;
+        for(let i=0; i<charArray.length; i++){
+            let currentChar = charArray[i];
+            let intValue = allowedCharMap.get(currentChar);
+            if(intValue == null){
+                throw ("Invalid character "+currentChar+" found, in the text provided. Only numbers and alphanumeric characters supported.");
+            }
+            plainTextIntArray[i] = intValue;
+        }
+        return plainTextIntArray;
+    }
+
+    convertDeRadixedIntArrayToString(charArray, charMap){
+        let plainTextIntArray = new Array(charArray.length);
+        let allowedCharMap = charMap;
+        for(let i=0; i<charArray.length; i++){
+            let currentChar = charArray[i];
+            let intValue = null;
+            for (let [key, value] of allowedCharMap.entries()){
+                if (value === currentChar){
+                    intValue = key;
+                }
+            }
+            if(intValue == null){
+                throw ("Invalid character "+currentChar+" found, in the text provided. Only numbers and alphanumeric characters supported.");
+            }
+            plainTextIntArray[i] = intValue;
+        } 
+        let result = plainTextIntArray.join('');
+        return result;
     }
 }
 
