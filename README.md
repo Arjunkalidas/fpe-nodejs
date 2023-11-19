@@ -24,12 +24,12 @@ In addition to formatted data, each FPE mode considers an additional input known
 ```
 const cryptoUtil = require('./FF-1/CryptoUtil');
 
-let key = "base64 encoded key here";
+let key = "base64 encoded key here"; // eg: "TAMNxdIPhUrR4ONYGHoXJ9357F4oe+H+vFwm8f2kc7I="
 // Tweak should be 32 characters or less. Tweak is an optional field, which you can leave empty if not required.
 let tweak = ""
 
 // maximum length of plain text cannot exceed 4096
-const plainText = "text to encrypt";
+const plainText = "1234567890";
 
 const encryptDecryptUtil = new cryptoUtil(key, tweak);
 
