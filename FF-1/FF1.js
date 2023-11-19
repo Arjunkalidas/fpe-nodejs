@@ -11,11 +11,12 @@ const MAX_LEN = 4096;
 const NUM_ROUNDS = 10;
 
 const ciphers = new Ciphers();
+const commonUtils = new CommonUtils();
 
 class FF1 {
 
     constructor(secretKey, tweak, maxTlen) {
-        this.commonUtils = new CommonUtils();
+
         MAXTlen = Math.max(MAXTlen, maxTlen);
 
         // validate secretKey
@@ -92,59 +93,58 @@ class FF1 {
 
         // Javascript bitwise operations work on 32-bit signed integers, so if the values of radix, n, t, or u
         // are larger than 32 bits, you may have to adjust the MAXTlen accordingly
-        const tbr = this.commonUtils.byteArray(radix, 3);
-        const fbn = this.commonUtils.byteArray(n, 4);
-        const fbt = this.commonUtils.byteArray(t, 4);
+        const tbr = commonUtils.byteArray(radix, 3);
+        const fbn = commonUtils.byteArray(n, 4);
+        const fbt = commonUtils.byteArray(t, 4);
 
-        let b1 = this.commonUtils.mod(u, 256) & (0xFF);
+        let b1 = commonUtils.mod(u, 256) & (0xFF);
 
         let utf8Encode = new TextEncoder();
 
         tweak = utf8Encode.encode(tweak);
 
-        const P = [0x01, 0x02, 0x01, tbr[0], tbr[1], tbr[2], 0x0A, b1, fbn[0], fbn[1], fbn[2], fbn[3], 
-                    fbt[0], fbt[1], fbt[2], fbt[3]];
+        const P = [0x01, 0x02, 0x01, tbr[0], tbr[1], tbr[2], 0x0A, b1, fbn[0], fbn[1], fbn[2], fbn[3], fbt[0], fbt[1], fbt[2], fbt[3]];
 
         for (let i = 0; i < NUM_ROUNDS; i++) {
-            let tbMod = this.commonUtils.mod(-t - b - 1, 16);
-            let tbModByteArray = this.commonUtils.byteArray(0, tbMod);
-            let Q = this.commonUtils.concatenate(tweak, tbModByteArray);
+            let tbMod = commonUtils.mod(-t - b - 1, 16);
+            let tbModByteArray = commonUtils.byteArray(0, tbMod);
+            let Q = commonUtils.concatenate(tweak, tbModByteArray);
 
-            let ibyteArr = this.commonUtils.byteArray(i, 1);
-            Q = this.commonUtils.concatenate(Q, ibyteArr);
+            let ibyteArr = commonUtils.byteArray(i, 1);
+            Q = commonUtils.concatenate(Q, ibyteArr);
 
-            let radixNumConv = this.commonUtils.num(B, radix)
-            Q = this.commonUtils.concatenate(Q, this.commonUtils.byteArray(radixNumConv, b));
+            let radixNumConv = commonUtils.num(B, radix)
+            Q = commonUtils.concatenate(Q, commonUtils.byteArray(radixNumConv, b));
 
             let R = new Int8Array(16);
 
-            let PQ = this.commonUtils.concatenate(P, Q);
+            let PQ = commonUtils.concatenate(P, Q);
 
-            R = ciphers.prf_encrypt(secretKey, PQ);
+            R = ciphers.prf(secretKey, PQ);
 
             let S = R;
 
             for (let j = 1; j <= Math.ceil(d /16.0) - 1; j++) {
-                let byteArray = this.commonUtils.byteArray(j, 16);
-                let xor_R = this.commonUtils.xor(R, byteArray);
-                S = this.commonUtils.concatenate(S, ciphers.ciph(secretKey, xor_R));
+                let byteArray = commonUtils.byteArray(j, 16);
+                let xor_R = commonUtils.xor(R, byteArray);
+                S = commonUtils.concatenate(S, ciphers.ciph(secretKey, xor_R));
             }
 
             S = S.slice(0, d);
-            let y = this.commonUtils.num_byte(S);
+            let y = commonUtils.num_byte(S);
 
             let m = i % 2 == 0 ? u : v;
 
-            let c = this.commonUtils.modBigInt((BigInt(this.commonUtils.num(A, radix)) + BigInt(y)), this.commonUtils.pow(radix, m));
+            let c = commonUtils.modBigInt((BigInt(commonUtils.num(A, radix)) + BigInt(y)), commonUtils.pow(radix, m));
 
-            let C = this.commonUtils.str(c, radix, m);
+            let C = commonUtils.str(c, radix, m);
 
             A = B;
 
             B = C;
         }
 
-        return this.commonUtils.concatenate(A, B);
+        return commonUtils.concatenate(A, B);
     }
 
     decrypt(secretKey, tweak, radix, plainText) {
@@ -198,60 +198,58 @@ class FF1 {
 
         let d = 4 * Math.ceil(b / 4.0) + 4;
 
-        const tbr = this.commonUtils.byteArray(radix, 3);
-        const fbn = this.commonUtils.byteArray(n, 4);
-        const fbt = this.commonUtils.byteArray(t, 4);
+        const tbr = commonUtils.byteArray(radix, 3);
+        const fbn = commonUtils.byteArray(n, 4);
+        const fbt = commonUtils.byteArray(t, 4);
 
-        let b1 = this.commonUtils.mod(u, 256) & (0xFF);
+        let b1 = commonUtils.mod(u, 256) & (0xFF);
 
         let utf8Encode = new TextEncoder();
 
         tweak = utf8Encode.encode(tweak);
 
-        const P = [0x01, 0x02, 0x01, tbr[0], tbr[1], tbr[2], 0x0A, b1, fbn[0], fbn[1], fbn[2], fbn[3], 
-                    fbt[0], fbt[1], fbt[2], fbt[3]];
+        const P = [0x01, 0x02, 0x01, tbr[0], tbr[1], tbr[2], 0x0A, b1, fbn[0], fbn[1], fbn[2], fbn[3], fbt[0], fbt[1], fbt[2], fbt[3]];
 
-        for (let i = NUM_ROUNDS; i > 0; i--) {
+        for (let i = NUM_ROUNDS-1; i >= 0; i--) {
+            let tbMod = commonUtils.mod(-t - b - 1, 16);
+            let tbModByteArray = commonUtils.byteArray(0, tbMod);
+            let Q = commonUtils.concatenate(tweak, tbModByteArray);
 
-            let tbMod = this.commonUtils.mod(-t - b - 1, 16);
-            let tbModByteArray = this.commonUtils.byteArray(0, tbMod);
-            let Q = this.commonUtils.concatenate(tweak, tbModByteArray);
+            let ibyteArr = commonUtils.byteArray(i, 1);
+            Q = commonUtils.concatenate(Q, ibyteArr);
 
-            let ibyteArr = this.commonUtils.byteArray(i, 1);
-            Q = this.commonUtils.concatenate(Q, ibyteArr);
-
-            let radixNumConv = this.commonUtils.num(A, radix)
-            Q = this.commonUtils.concatenate(Q, this.commonUtils.byteArray(radixNumConv, b));
+            let radixNumConv = commonUtils.num(A, radix)
+            Q = commonUtils.concatenate(Q, commonUtils.byteArray(radixNumConv, b));
 
             let R = new Int8Array(16);
 
-            let PQ = this.commonUtils.concatenate(P, Q);
+            let PQ = commonUtils.concatenate(P, Q);
 
-            R = ciphers.prf_decrypt(secretKey, PQ);
+            R = ciphers.prf(secretKey, PQ);
 
             let S = R;
 
             for (let j = 1; j <= Math.ceil(d /16.0) - 1; j++) {
-                let byteArray = this.commonUtils.byteArray(j, 16);
-                let xor_R = this.commonUtils.xor(R, byteArray);
-                S = this.commonUtils.concatenate(S, ciphers.ciph(secretKey, xor_R));
+                let byteArray = commonUtils.byteArray(j, 16);
+                let xor_R = commonUtils.xor(R, byteArray);
+                S = commonUtils.concatenate(S, ciphers.ciph(secretKey, xor_R));
             }
 
             S = S.slice(0, d);
-            let y = this.commonUtils.num_byte(S);
+            let y = commonUtils.num_byte(S);
 
             let m = i % 2 == 0 ? u : v;
 
-            let c = this.commonUtils.modBigInt((BigInt(this.commonUtils.num(B, radix)) + BigInt(y)), this.commonUtils.pow(radix, m));
+            let c = commonUtils.modBigInt((BigInt(commonUtils.num(B, radix)) - BigInt(y)), commonUtils.pow(radix, m));
 
-            let C = this.commonUtils.str(c, radix, m);
+            let C = commonUtils.str(c, radix, m);
 
             B = A;
 
             A = C;
         }
 
-        return this.commonUtils.concatenate(A, B);
+        return commonUtils.concatenate(A, B);
     }
 }
 

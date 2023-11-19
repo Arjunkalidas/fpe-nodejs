@@ -140,25 +140,21 @@ class CommonUtils {
 
     modBigInt(x, m) {
         // validate x
-        //if (!x || x == NaN || x == null) {
-           // throw ("x must be a valid number: ", x);
-        //}
+        if (x == NaN || x == null) {
+           throw ("x must be a valid number: ", x);
+        }
 
         // validate m
-       // if (!m || m == NaN || m == null) {
-       //     throw ("m must be a valid number:", m);
-       // }
-
-        let n = parseInt(m);
+       if (m == NaN || m == null) {
+           throw ("m must be a valid number:", m);
+       }
 
         // validate n after converting to integer
-        if (n < 1) {
+        if (m < 1) {
             throw ("n must be a positive integer");
         }
 
-        let y = parseInt(x);
         return ((x % m) < 0 ? (x % m) + m : (x % m)).toString();
-
     }
 
     num(X, radix) {
