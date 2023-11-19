@@ -9,12 +9,14 @@ const MAX_RADIX = 65536;
 const MIN_LEN = 2;
 const MAX_LEN = 4096;
 const NUM_ROUNDS = 10;
-const commonUtils = new CommonUtils();;
+
 const ciphers = new Ciphers();
+const commonUtils = new CommonUtils();
 
 class FF1 {
 
     constructor(secretKey, tweak, maxTlen) {
+
         MAXTlen = Math.max(MAXTlen, maxTlen);
 
         // validate secretKey
@@ -101,8 +103,7 @@ class FF1 {
 
         tweak = utf8Encode.encode(tweak);
 
-        const P = [0x01, 0x02, 0x01, tbr[0], tbr[1], tbr[2], 0x0A, b1, fbn[0], fbn[1], fbn[2], fbn[3], 
-                    fbt[0], fbt[1], fbt[2], fbt[3]];
+        const P = [0x01, 0x02, 0x01, tbr[0], tbr[1], tbr[2], 0x0A, b1, fbn[0], fbn[1], fbn[2], fbn[3], fbt[0], fbt[1], fbt[2], fbt[3]];
 
         for (let i = 0; i < NUM_ROUNDS; i++) {
             let tbMod = commonUtils.mod(-t - b - 1, 16);
@@ -119,7 +120,7 @@ class FF1 {
 
             let PQ = commonUtils.concatenate(P, Q);
 
-            R = ciphers.prf_encrypt(secretKey, PQ);
+            R = ciphers.prf(secretKey, PQ);
 
             let S = R;
 
@@ -207,11 +208,9 @@ class FF1 {
 
         tweak = utf8Encode.encode(tweak);
 
-        const P = [0x01, 0x02, 0x01, tbr[0], tbr[1], tbr[2], 0x0A, b1, fbn[0], fbn[1], fbn[2], fbn[3], 
-                    fbt[0], fbt[1], fbt[2], fbt[3]];
+        const P = [0x01, 0x02, 0x01, tbr[0], tbr[1], tbr[2], 0x0A, b1, fbn[0], fbn[1], fbn[2], fbn[3], fbt[0], fbt[1], fbt[2], fbt[3]];
 
-        for (let i = NUM_ROUNDS; i > 0; i--) {
-
+        for (let i = NUM_ROUNDS-1; i >= 0; i--) {
             let tbMod = commonUtils.mod(-t - b - 1, 16);
             let tbModByteArray = commonUtils.byteArray(0, tbMod);
             let Q = commonUtils.concatenate(tweak, tbModByteArray);
@@ -226,7 +225,7 @@ class FF1 {
 
             let PQ = commonUtils.concatenate(P, Q);
 
-            R = ciphers.prf_decrypt(secretKey, PQ);
+            R = ciphers.prf(secretKey, PQ);
 
             let S = R;
 
@@ -241,7 +240,7 @@ class FF1 {
 
             let m = i % 2 == 0 ? u : v;
 
-            let c = commonUtils.modBigInt((BigInt(commonUtils.num(B, radix)) + BigInt(y)), commonUtils.pow(radix, m));
+            let c = commonUtils.modBigInt((BigInt(commonUtils.num(B, radix)) - BigInt(y)), commonUtils.pow(radix, m));
 
             let C = commonUtils.str(c, radix, m);
 

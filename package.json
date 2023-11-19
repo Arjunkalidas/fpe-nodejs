@@ -10,7 +10,7 @@
     "contributors": "Paineer Balaji Giri",
     "dependencies": {
         "crypto-js": "^4.1.1"
-    }
+    },
       "engines": {
         "node": ">=10.0.0"
       },
@@ -28,5 +28,5 @@
         "cipher",
         "decryption"
       ],
-    "license": "Apache 2.0",
+    "license": "Apache 2.0"
 }
