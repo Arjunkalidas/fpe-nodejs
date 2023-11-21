@@ -2,14 +2,16 @@
 
 
 const crypto = require('crypto');
+const AES_ECB_ALGORITHM = require('./common-utils/Constants').AES_ECB_ALGORITHM;
 
 let mAesEcbCipher = null;
+// CBC cipher encryption is to be implemented and tested as part of enhancement
 let mAesCbcCipher = null;
 const MAX_LEN = 4096;
 
 class Ciphers {
 
-    prf_encrypt(secretKey, plainText) {
+    prf(secretKey, plainText) {
         // validate key
         if(!secretKey || secretKey == null) {
             throw ("Secret Key cannot be empty or null");
@@ -57,7 +59,7 @@ class Ciphers {
             throw ("The length of the plain text input to encrypt should be within the permitted length of 1 and "+ MAX_LEN);
         }
 
-        const cipher = crypto.createCipheriv('aes-256-ecb', secretKey, null);
+        const cipher = crypto.createCipheriv(AES_ECB_ALGORITHM, secretKey, null);
         cipher.setAutoPadding(false);
         const encryptedBlock = Buffer.concat([cipher.update(plainText), cipher.final()]);
         return new Int8Array(encryptedBlock);
@@ -80,7 +82,7 @@ class Ciphers {
         return arr;
     }
 
-    prf_decrypt(secretKey, plainText) {
+    prf_alt(secretKey, plainText) {
         // validate key
         if(!secretKey || secretKey == null) {
             throw ("Secret Key cannot be empty or null");
@@ -101,13 +103,12 @@ class Ciphers {
         const arr = new Int32Array(16);
         arr.fill(0x00);
 
-        mAesEcbCipher = crypto.createCipheriv('aes-256-ecb', secretKey, crypto.randomBytes(16));
+        mAesEcbCipher = crypto.createCipheriv(AES_ECB_ALGORITHM, secretKey, crypto.randomBytes(16));
         mAesEcbCipher.setAutoPadding(false);
 
         Z = mAesEcbCipher.update(plainText);
 
         return new Int32Array(Z.slice(Z.length - 16, Z.length));
-
     }
 }
 

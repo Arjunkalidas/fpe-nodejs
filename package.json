@@ -1,14 +1,32 @@
 {
     "name": "fpe-nodejs",
     "version": "1.0.0",
-    "description": "A nodejs library for Format Preserving Encryption that supports FF1 mode written entirely based on NIST specs and recommendation.",
+    "description": "A nodejs library for Format Preserving Encryption that supports FF1 mode",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "npm run test"
     },
-    "author": "Arjun Kalidas, Paineer Balaji Giri",
-    "license": "ISC",
+    "author": "Arjun Kalidas <askjaykal@mail.com>",
+    "contributors": "Paineer Balaji Giri",
     "dependencies": {
         "crypto-js": "^4.1.1"
-    }
+    },
+      "engines": {
+        "node": ">=10.0.0"
+      },
+      "bugs:": "https://github.com/ArjunKalidas/fpe-nodejs/issues",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/ArjunKalidas/fpe-nodejs"
+      },
+      "keywords": [
+        "fpe",
+        "format",
+        "preserving",
+        "encryption",
+        "ff1",
+        "cipher",
+        "decryption"
+      ],
+    "license": "Apache 2.0"
 }

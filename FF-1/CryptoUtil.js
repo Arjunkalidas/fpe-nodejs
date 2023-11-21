@@ -1,6 +1,6 @@
 'use strict';
 
-const FF1 = require('./FF1');
+const FPEncryption = require('./FPEncryption');
 const CharMap = require('./CharMap');
 const crypto = require('crypto');
 
@@ -18,7 +18,7 @@ const charMap = new CharMap();
 class CryptoUtil {
 
     constructor(secretKey, tweak) {
-
+        console.log("constructor:: secretKey::: ",secretKey);
         key = secretKey;
         keyByteArr = Buffer.from(key, "base64");
         sec = crypto.createSecretKey(keyByteArr, 'base64');
@@ -26,7 +26,7 @@ class CryptoUtil {
         updatedCharMap = charMap.convertToMap(this.getNumericCharacters());
 
         TWEAK = tweak;
-        ff1String = new FF1(secretKey, TWEAK, maxTlen);
+        ff1String = new FPEncryption(secretKey, TWEAK, maxTlen);
     }
 
     encrypt(plainText) {
@@ -38,7 +38,7 @@ class CryptoUtil {
         return ff1String.encrypt(sec, TWEAK, plainText, radix, updatedCharMap);
     }
 
-    decrypt(secretKey, cipherText) {
+    decrypt(cipherText) {
         // sanitize the cipher text
         cipherText = this.sanitizeTextInput(cipherText);
         // sanitized cipher text is used to find the radix
@@ -47,6 +47,7 @@ class CryptoUtil {
         return ff1String.decrypt(keyByteArr, TWEAK, cipherText, radix, updatedCharMap);
     }
 
+    // This could be converted to pick chars based on the char code instead of writing out each alphabet and number
     getAlphanumericCharacters() {
         let charArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
                         'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f',
@@ -75,6 +76,10 @@ class CryptoUtil {
     }
 
     sanitizeTextInput(plainText) {
+        if (typeof plainText === 'undefined') {
+            throw new Error("Plain text input cannot be undefined");
+        }
+
         if(plainText < 0) {
             throw ("plainText input cannot be a negative integer, it must be positive or alphanumeric.");
         }
