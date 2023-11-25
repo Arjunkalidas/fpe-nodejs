@@ -1,13 +1,13 @@
-# fpe-nodejs (FF1 mode)
+# fpe-nodejs (FF1)
 
 ## Background
 This is a repository for format preserving encryption in FF-1 mode written in Nodejs (Javascript)
 
 We have used the NIST recommended specifications and guidelines to create a Javascript equivalent of this library. There are implementations out there in Java for FF1 & FF3, and Nodejs for FF3 mode, but none for FF1 mode in Nodejs, hence we decided to create this repo.
 
-To read more on NIST's FPE documents, head here -> https://csrc.nist.gov/pubs/sp/800/38/g/upd1/final
+* To read more on NIST's FPE documents, head here -> [NIST Recommendation SP 800-38G](https://csrc.nist.gov/pubs/sp/800/38/g/upd1/final)
 
-To refer the specifications in detail, please use this document -> https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38G.pdf
+* To refer the specifications in detail, please use this document -> [NIST Recommendation SP 800-38G Revision 1 ](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38G.pdf)
 
 ## Introduction
 A block cipher mode of operation, commonly known as a mode, is an algorithm designed for the cryptographic transformation of data based on a block cipher. Traditional encryption modes operate on binary data, where inputs and outputs are bit strings consisting of ones and zeros. However, when dealing with non-binary symbol sequences, such as Social Security numbers (SSN), the existing modes may fail to maintain the original format, posing challenges when converting back to the desired data type.
@@ -46,4 +46,4 @@ const decryptedText = cryptoUtil.decrypt(key, cipherText);
 - Option to use different encryption modes such as FF1 & FF3, or ECB, CBC with/without padding are ideas for enhancement
 
 ## License
-Apache 2.0
+This project is licensed under the terms of the Apache 2.0
