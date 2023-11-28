@@ -1,16 +1,18 @@
 'use strict';
 
-
 const crypto = require('crypto');
 const AES_ECB_ALGORITHM = require('./common-utils/Constants').AES_ECB_ALGORITHM;
 
 let mAesEcbCipher = null;
-// CBC cipher encryption is to be implemented and tested as part of enhancement
 let mAesCbcCipher = null;
 const MAX_LEN = 4096;
 
 class Ciphers {
 
+    /*
+    *  secretKey: the AES key that is base64 decoded
+    *  plainText: the text/data to encrypt
+    */
     prf(secretKey, plainText) {
         // validate key
         if(!secretKey || secretKey == null) {
@@ -45,6 +47,10 @@ class Ciphers {
         return Y;
     }
 
+    /*
+    *  secretKey: the AES key that is base64 decoded
+    *  plainText: the text/data to encrypt
+    */
     ciph(secretKey, plainText) {
         // validate key
         if(!secretKey || secretKey == null) {
@@ -65,8 +71,9 @@ class Ciphers {
         return new Int8Array(encryptedBlock);
     }
 
-    // isBit: boolean - the bit value with which to fill the output; false = 0, true = 1
-    // s: number - the length of the output in bits (not bytes)
+    /* isBit: boolean - the bit value with which to fill the output; false = 0, true = 1
+    *  s: number - the length of the output in bits (not bytes)
+    */
     bitstring(isBit, s) {
         // validate s
         if(s < 1) {
@@ -82,6 +89,11 @@ class Ciphers {
         return arr;
     }
 
+    /* NOT CURRENTLY USED ANYWHERE, BUT THERE IS A FUTURE FOR THIS FUNCTION */
+    /*
+    *  secretKey: the AES key that is base64 decoded
+    *  plainText: the text/data to encrypt
+    */
     prf_alt(secretKey, plainText) {
         // validate key
         if(!secretKey || secretKey == null) {
