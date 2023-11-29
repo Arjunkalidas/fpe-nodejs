@@ -2,10 +2,10 @@
 
 const crypto = require('crypto');
 const AES_ECB_ALGORITHM = require('./common-utils/Constants').AES_ECB_ALGORITHM;
+const MAX_LEN = require('./common-utils/Constants').MAX_LEN;
 
 let mAesEcbCipher = null;
 let mAesCbcCipher = null;
-const MAX_LEN = 4096;
 
 class Ciphers {
 
