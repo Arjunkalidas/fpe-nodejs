@@ -2,13 +2,13 @@
 
 const Ciphers = require('./Ciphers');
 const CommonUtils = require('./common-utils/CommonUtils');
+const MIN_RADIX = require('./common-utils/Constants').MIN_RADIX;
+const MAX_RADIX = require('./common-utils/Constants').MAX_RADIX;
+const MIN_LEN = require('./common-utils/Constants').MIN_LEN;
+const MAX_LEN = require('./common-utils/Constants').MAX_LEN;
+const NUM_ROUNDS = require('./common-utils/Constants').NUM_ROUNDS;
 
 let MAXTlen = 32;
-const MIN_RADIX = 2;
-const MAX_RADIX = 65536;
-const MIN_LEN = 2;
-const MAX_LEN = 4096;
-const NUM_ROUNDS = 10;
 
 const ciphers = new Ciphers();
 const commonUtils = new CommonUtils();
