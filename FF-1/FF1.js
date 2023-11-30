@@ -39,6 +39,14 @@ class FF1 {
         }
     }
 
+    /**
+     * Function to encrypt a provided string - numeric or alphanumeric
+     * @param {*} secretKey base 64 decoded key
+     * @param {*} tweak padding (optional)
+     * @param {*} radix radix is 10 for numeric & 62 for alphanumeric
+     * @param {*} plainText the input text to encrypt
+     * @returns 
+     */
     encrypt(secretKey, tweak, radix, plainText) {
         // validate key
         if (!secretKey || secretKey == null) {
@@ -147,7 +155,15 @@ class FF1 {
         return commonUtils.concatenate(A, B);
     }
 
-    decrypt(secretKey, tweak, radix, plainText) {
+    /**
+     * Function to decrypt the cipher text that was encrypted using FPE FF1 encryption logic
+     * @param {*} secretKey the base 64 decoded key
+     * @param {*} tweak the padding (optional)
+     * @param {*} radix radix is 10 for numeric or 62 for alphanumeric
+     * @param {*} cipherText the cipher text that will be decrypted
+     * @returns 
+     */
+    decrypt(secretKey, tweak, radix, cipherText) {
         // validate key
         if (!secretKey || secretKey == null) {
             throw ("Secret Key cannot be empty or null");
@@ -168,19 +184,19 @@ class FF1 {
         }
 
         // validate plain text input
-        if (!plainText || plainText == null) {
-            throw ("Plain text input to encrypt must not be null or empty.");
+        if (!cipherText || cipherText == null) {
+            throw ("Cipher text input to deccrypt must not be null or empty.");
         }
 
-        if (plainText.length < MIN_LEN || plainText.length > MAX_LEN) {
-            throw ("The length of the plain text input to encrypt should be within the permitted range of "+ MIN_LEN +" and " + MAX_LEN + ". You have provided " + plainText.length);
+        if (cipherText.length < MIN_LEN || cipherText.length > MAX_LEN) {
+            throw ("The length of the cipher text input to decrypt should be within the permitted range of "+ MIN_LEN +" and " + MAX_LEN + ". You have provided " + cipherText.length);
         }
 
-        if (Math.pow(radix, plainText.length) < 100) {
-            throw ("The length of plain text to encrypt must be such that radix ^ length > 100, but here (radix ^ length = "+ Math.pow(radix, plainText.length));
+        if (Math.pow(radix, cipherText.length) < 100) {
+            throw ("The length of cipher text to decrypt must be such that radix ^ length > 100, but here (radix ^ length = "+ Math.pow(radix, cipherText.length));
         }
 
-        let X = plainText;
+        let X = cipherText;
 
         // length of input
         const n = X.length;
