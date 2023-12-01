@@ -3,6 +3,7 @@
 const FPEncryption = require('./FPEncryption');
 const CharMap = require('./CharMap');
 const crypto = require('crypto');
+const BASE64 = require('./common-utils/Constants').BASE64;
 
 let keyByteArr = ''
 let updatedCharMap;
@@ -18,10 +19,9 @@ const charMap = new CharMap();
 class CryptoUtil {
 
     constructor(secretKey, tweak) {
-        console.log("constructor:: secretKey::: ",secretKey);
         key = secretKey;
-        keyByteArr = Buffer.from(key, "base64");
-        sec = crypto.createSecretKey(keyByteArr, 'base64');
+        keyByteArr = Buffer.from(key, BASE64);
+        sec = crypto.createSecretKey(keyByteArr, BASE64);
 
         updatedCharMap = charMap.convertToMap(this.getNumericCharacters());
 

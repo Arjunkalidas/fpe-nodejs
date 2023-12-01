@@ -26,6 +26,8 @@ const MIN_LEN = 2;
 
 const NUM_ROUNDS = 10;
 
+const BASE64 = "base64";
+
 module.exports = {
     ENCRYPTION_MODE,
     DECRYPTION_MODE,
@@ -38,5 +40,6 @@ module.exports = {
     MIN_RADIX,
     MAX_RADIX,
     MIN_LEN,
-    NUM_ROUNDS
+    NUM_ROUNDS,
+    BASE64
 }
