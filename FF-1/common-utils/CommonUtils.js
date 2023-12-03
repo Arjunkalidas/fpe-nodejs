@@ -1,8 +1,8 @@
 'use strict';
 
-const MAX_LEN = 4096;
-const MIN_RADIX = 2;
-const MAX_RADIX = 65536;
+const MIN_RADIX = require('./Constants').MIN_RADIX;
+const MAX_RADIX = require('./Constants').MAX_RADIX;
+const MAX_LEN = require('./Constants').MAX_LEN;
 
 class CommonUtils {
 
