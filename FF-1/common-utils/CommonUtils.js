@@ -1,11 +1,17 @@
 'use strict';
 
-const MAX_LEN = 4096;
-const MIN_RADIX = 2;
-const MAX_RADIX = 65536;
+const MIN_RADIX = require('./Constants').MIN_RADIX;
+const MAX_RADIX = require('./Constants').MAX_RADIX;
+const MAX_LEN = require('./Constants').MAX_LEN;
 
 class CommonUtils {
 
+    /**
+     *  A utility function to concatenate byte arrays
+     * @param {*} X 
+     * @param {*} Y 
+     * @returns 
+     */
     concatenate(X, Y) {
         // validate X
         if (X == null) {
@@ -25,11 +31,25 @@ class CommonUtils {
         return newArr;
     }
 
+    /**
+     * A utility function to copy the elements from an array to another from a particular source index to destination index
+     * @param {*} src 
+     * @param {*} srcIndex 
+     * @param {*} dest 
+     * @param {*} destIndex 
+     * @param {*} length 
+     */
     // Copy the objects of an array and create a new array
     arrayCopy(src, srcIndex, dest, destIndex, length) {
         dest.splice(destIndex, length, ...src.slice(srcIndex, srcIndex + length));
     }
 
+    /**
+     * A utility function to calculate the XOR value of given bytes
+     * @param {*} X 
+     * @param {*} Y 
+     * @returns 
+     */
     // returns the XOR value of X and Y
     xor(X, Y) {
         // validate X
@@ -64,6 +84,12 @@ class CommonUtils {
         return Z;
     }
 
+    /**
+     * A utility function to form a byte array from the given numbers x and s
+     * @param {*} x 
+     * @param {*} s 
+     * @returns 
+     */
     byteArray(x, s) {
         // validate s
         if (s < 1 || s > MAX_LEN) {
@@ -113,6 +139,12 @@ class CommonUtils {
         return arr;
     }
 
+    /**
+     * A utility function to perform the modulo operation 
+     * @param {*} x 
+     * @param {*} m 
+     * @returns 
+     */
     mod(x, m) {
         // validate m
         if (m < 1) {
@@ -122,6 +154,12 @@ class CommonUtils {
         return x - m * Math.floor(x / m);
     }
 
+    /**
+     * A utility function to obtain the power of a Big Integer
+     * @param {*} x 
+     * @param {*} m 
+     * @returns 
+     */
     pow(x, m) {
         // validate x
         if (!x || x == NaN || x == null) {
@@ -138,6 +176,12 @@ class CommonUtils {
         return y ** n;
     }
 
+    /**
+     * A utility function to perform modulo operation for a Big Integer data type
+     * @param {*} x 
+     * @param {*} m 
+     * @returns 
+     */
     modBigInt(x, m) {
         // validate x
         if (x == NaN || x == null) {
@@ -233,6 +277,12 @@ class CommonUtils {
         return X;
     }
 
+    /**
+     * A utility function to convert the given string to a radixed integer array
+     * @param {*} charArray 
+     * @param {*} charMap 
+     * @returns 
+     */
     convertStringToRadixedIntArray(charArray, charMap){
         let plainTextIntArray = new Array(charArray.length);
         let allowedCharMap = charMap;
@@ -247,6 +297,12 @@ class CommonUtils {
         return plainTextIntArray;
     }
 
+    /**
+     * A utility function to convert the given De-radixed integer array to string
+     * @param {*} charArray 
+     * @param {*} charMap 
+     * @returns 
+     */
     convertDeRadixedIntArrayToString(charArray, charMap){
         let plainTextIntArray = new Array(charArray.length);
         let allowedCharMap = charMap;

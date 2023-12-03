@@ -14,6 +14,15 @@ class FPEncryption extends FF1 {
         super(secretKey, tweak, MAXTLen);
     }
 
+    /**
+     * Wrapper method to encrypt 
+     * @param {*} secretKey 
+     * @param {*} tweak 
+     * @param {*} plainText 
+     * @param {*} radix 
+     * @param {*} charMap 
+     * @returns 
+     */
     encrypt(secretKey, tweak, plainText, radix, charMap) {
         let ff1 = new FF1(secretKey, tweak, MAXTLen);
         charArray = Array.from(plainText);
@@ -23,6 +32,15 @@ class FPEncryption extends FF1 {
         return encryptedValue;
     }
 
+    /**
+     * Wrapper method to decrypt
+     * @param {*} secretKey 
+     * @param {*} tweak 
+     * @param {*} cipherText 
+     * @param {*} radix 
+     * @param {*} charMap 
+     * @returns 
+     */
     decrypt(secretKey, tweak, cipherText, radix, charMap) {
         let ff1 = new FF1(secretKey, tweak, MAXTLen);
         let charArray = Array.from(cipherText);
