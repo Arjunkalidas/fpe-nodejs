@@ -10,6 +10,7 @@ let mAesCbcCipher = null;
 class Ciphers {
 
     /*
+    *  This is a pseudorandom function that is used to generate a randomized array of the plainText input
     *  secretKey: the AES key that is base64 decoded
     *  plainText: the text/data to encrypt
     */
@@ -48,6 +49,7 @@ class Ciphers {
     }
 
     /*
+    *  This is a cipher function used to generate a cipher using AES ECB algorithm and crypto library's cipher creation method
     *  secretKey: the AES key that is base64 decoded
     *  plainText: the text/data to encrypt
     */
