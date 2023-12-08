@@ -1,10 +1,11 @@
 {
-    "name": "fpe-nodejs",
+    "name": "fpe-node",
     "version": "1.0.0",
-    "description": "A nodejs library for Format Preserving Encryption that supports FF1 mode",
+    "description": "A nodejs library for Format Preserving Encryption that encrypts & decrypts in FF1 mode",
     "main": "index.js",
     "scripts": {
-        "test": "npm run test"
+        "test": "npm run test",
+        "build": "npm run build"
     },
     "author": "Arjun Kalidas <askjaykal@mail.com>",
     "contributors": "Paineer Balaji Giri",
@@ -12,7 +13,7 @@
         "crypto-js": "^4.1.1"
     },
       "engines": {
-        "node": ">=14.14.0"
+        "node": ">=16.0.0"
       },
       "bugs:": "https://github.com/ArjunKalidas/fpe-nodejs/issues",
       "repository": {
