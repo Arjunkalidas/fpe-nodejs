@@ -1,7 +1,7 @@
 {
     "name": "fpe-node",
     "version": "1.0.0",
-    "description": "A nodejs library for Format Preserving Encryption that encrypts & decrypts in FF1 mode",
+    "description": "A nodejs library for Format Preserving Encryption that encrypts & decrypts the input in FF1 mode",
     "main": "index.js",
     "scripts": {
         "test": "npm run test",
@@ -13,7 +13,7 @@
         "crypto-js": "^4.1.1"
     },
       "engines": {
-        "node": ">=16.0.0"
+        "node": ">=18.0.0"
       },
       "bugs:": "https://github.com/ArjunKalidas/fpe-nodejs/issues",
       "repository": {
@@ -27,7 +27,10 @@
         "encryption",
         "ff1",
         "cipher",
-        "decryption"
+        "decryption",
+        "block cipher",
+        "aes",
+        "cbc"
       ],
     "license": "Apache 2.0"
 }
