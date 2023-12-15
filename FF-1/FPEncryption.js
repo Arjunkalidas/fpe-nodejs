@@ -21,7 +21,7 @@ class FPEncryption extends FF1 {
      * @param {*} plainText 
      * @param {*} radix 
      * @param {*} charMap 
-     * @returns 
+     * @returns the encrypted cipher text
      */
     encrypt(secretKey, tweak, plainText, radix, charMap) {
         let ff1 = new FF1(secretKey, tweak, MAXTLen);
@@ -39,7 +39,7 @@ class FPEncryption extends FF1 {
      * @param {*} cipherText 
      * @param {*} radix 
      * @param {*} charMap 
-     * @returns 
+     * @returns the decrypted plain text
      */
     decrypt(secretKey, tweak, cipherText, radix, charMap) {
         let ff1 = new FF1(secretKey, tweak, MAXTLen);
