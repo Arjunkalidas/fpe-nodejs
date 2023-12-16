@@ -7,7 +7,7 @@ let key = "TAMNxdIPhUrR4ONYGHoXJ9357F4oe+H+vFwm8f2kc7I=";
 let tweak = ""
 
 // maximum length of plain text cannot exceed 4096
-const plainText = "76938043407980"; // can be account numbers, SSN, driving license etc
+const plainText = "7693804ABC3407980"; // can be account numbers, SSN, driving license etc
 console.log("plain Text input :: ",plainText);
 
 // initialize crypto util by creating an instance and passing the key & tweak to the constructor
@@ -19,5 +19,4 @@ console.log("cipher text :: ",cipherText);
 const decryptedText = encryptDecryptUtil.decrypt(cipherText);
 
 console.log("decryptedText :: ", decryptedText);
-
 

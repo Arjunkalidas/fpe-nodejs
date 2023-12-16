@@ -1,8 +1,13 @@
 'use strict';
 
+const CharMap = require('../CharMap');
 const MIN_RADIX = require('./Constants').MIN_RADIX;
 const MAX_RADIX = require('./Constants').MAX_RADIX;
 const MAX_LEN = require('./Constants').MAX_LEN;
+
+const charMap = new CharMap();
+let RADIX = 10;
+let updatedCharMap;
 
 class CommonUtils {
 
@@ -289,9 +294,6 @@ class CommonUtils {
         for(let i=0; i<charArray.length; i++){
             let currentChar = charArray[i];
             let intValue = allowedCharMap.get(currentChar);
-            if(intValue == null){
-                throw ("Invalid character "+currentChar+" found, in the text provided. Only numbers and alphanumeric characters supported.");
-            }
             plainTextIntArray[i] = intValue;
         }
         return plainTextIntArray;
@@ -309,15 +311,12 @@ class CommonUtils {
         for(let i=0; i<charArray.length; i++){
             let currentChar = charArray[i];
             let intValue = null;
-            for (let [key, value] of allowedCharMap.entries()){
+            for (let [key, value] of allowedCharMap.entries()) {
                 if (value === currentChar){
                     intValue = key;
                 }
+                plainTextIntArray[i] = intValue;
             }
-            if(intValue == null){
-                throw ("Invalid character "+currentChar+" found, in the text provided. Only numbers and alphanumeric characters supported.");
-            }
-            plainTextIntArray[i] = intValue;
         } 
         let result = plainTextIntArray.join('');
         return result;
@@ -354,7 +353,7 @@ class CommonUtils {
         let code, i, len;
         for(i=0, len=sanitizedInput.length; i < len; i++) {
             code = sanitizedInput.charCodeAt(i);
-            if(code > 47 && code < 58) {
+            if(code >= 48 && code <= 57) {
                 continue;
             } else if(code > 64 && code < 123) {
                 RADIX = 62;
