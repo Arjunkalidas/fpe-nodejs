@@ -315,8 +315,8 @@ class CommonUtils {
                 if (value === currentChar){
                     intValue = key;
                 }
-                plainTextIntArray[i] = intValue;
             }
+            plainTextIntArray[i] = intValue;
         } 
         let result = plainTextIntArray.join('');
         return result;
@@ -350,6 +350,7 @@ class CommonUtils {
      * @returns the radix value as either 10 or 62 depending on the input provided
      */
     getRadix(sanitizedInput) {
+        updatedCharMap = charMap.convertToMap(this.getNumericCharacters());
         let code, i, len;
         for(i=0, len=sanitizedInput.length; i < len; i++) {
             code = sanitizedInput.charCodeAt(i);
@@ -362,6 +363,10 @@ class CommonUtils {
             }
         }
         return RADIX;
+    }
+
+    getUpdatedCharMap() {
+        return updatedCharMap;
     }
 
     /**
