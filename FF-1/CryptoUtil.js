@@ -10,7 +10,6 @@ let keyByteArr = ''
 let updatedCharMap;
 let maxTlen = 32;
 let ff1String;
-let RADIX = 10;
 let key = '';
 let sec;
 let TWEAK = '';
