@@ -365,6 +365,10 @@ class CommonUtils {
         return RADIX;
     }
 
+    /*
+    * Function to get the updated Char Map after RADIX is decided in getRadix function
+    * If RADIX is 10, it would be a numeric char map, else if it is 62, then alphanumeric char map
+    */
     getUpdatedCharMap() {
         return updatedCharMap;
     }
