@@ -206,6 +206,12 @@ class CommonUtils {
         return ((x % m) < 0 ? (x % m) + m : (x % m)).toString();
     }
 
+    /**
+     * This function is to calculate th num using plain text and radix
+     * @param {*} X  plain text to encrypt or cipher text to decrypt
+     * @param {*} radix the denomenator to calculate the num
+     * @returns 
+     */
     num(X, radix) {
         // validate x
         if (X == null) {
