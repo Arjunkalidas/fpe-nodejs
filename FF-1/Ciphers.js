@@ -73,9 +73,12 @@ class Ciphers {
         return new Int8Array(encryptedBlock);
     }
 
-    /* isBit: boolean - the bit value with which to fill the output; false = 0, true = 1
-    *  s: number - the length of the output in bits (not bytes)
-    */
+    /**
+     * This function is to convert a string to 32 bits 
+     * @param {*} isBit boolean - the bit value with which to fill the output; false = 0, true = 1
+     * @param {*} s number - the length of the output in bits (not bytes)
+     * @returns 
+     */
     bitstring(isBit, s) {
         // validate s
         if(s < 1) {
