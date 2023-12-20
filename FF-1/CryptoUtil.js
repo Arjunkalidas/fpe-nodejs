@@ -1,7 +1,6 @@
 'use strict';
 
 const FPEncryption = require('./FPEncryption');
-const CharMap = require('./CharMap');
 const crypto = require('crypto');
 const BASE64 = require('./common-utils/Constants').BASE64;
 const CommonUtils = require('./common-utils/CommonUtils');

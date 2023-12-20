@@ -207,10 +207,10 @@ class CommonUtils {
     }
 
     /**
-     * This function is to calculate th num using plain text and radix
+     * This function is to calculate the num using plain text and radix
      * @param {*} X  plain text to encrypt or cipher text to decrypt
      * @param {*} radix the denomenator to calculate the num
-     * @returns 
+     * @returns a BigInt
      */
     num(X, radix) {
         // validate x
@@ -240,6 +240,12 @@ class CommonUtils {
         return x;
     }
 
+    /**
+     * This function is to calculate the num using plain text and radix
+     * @param {*} X  plain text to encrypt or cipher text to decrypt
+     * @param {*} radix the denomenator to calculate the num
+     * @returns a string
+     */
     num_byte(X) {
         // validate x
         if (X == null) {
