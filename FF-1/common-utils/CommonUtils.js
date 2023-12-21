@@ -93,7 +93,7 @@ class CommonUtils {
      * A utility function to form a byte array from the given numbers x and s
      * @param {*} x 
      * @param {*} s 
-     * @returns 
+     * @returns a byte array for a string input
      */
     byteArray(x, s) {
         // validate s
@@ -148,7 +148,7 @@ class CommonUtils {
      * A utility function to perform the modulo operation 
      * @param {*} x 
      * @param {*} m 
-     * @returns 
+     * @returns the modulus of x with m
      */
     mod(x, m) {
         // validate m
@@ -163,7 +163,7 @@ class CommonUtils {
      * A utility function to obtain the power of a Big Integer
      * @param {*} x 
      * @param {*} m 
-     * @returns 
+     * @returns mth power for the number x
      */
     pow(x, m) {
         // validate x
