@@ -19,7 +19,17 @@ If it is a feature request, please discuss with us as we have certain defined ro
 
 ## Template for Pull Request (Sample)
 
-Coming soon...
+Here is a good resource by Github on steps to create a pull request
+[Pull Request Recommendation by Github](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)
+
+But, here we'll be showing how we expect the message for a pull request should be drafted.
+
+* Mention the change or topic clearly and briefly
+* Mention the type of PR, in your title, within parentheses - ex: defect, feature, upgrade, vulnerability etc
+* The main 5 categories, we would request you to include are: defect-fix, feature-request, dependency-upgrade, vulnerability & documentation
+* Mention the change or changes, if there are many, as bullet points in the description field
+* An example of a PR is provided below:
+  coming soon...
 
 ## Testing
 

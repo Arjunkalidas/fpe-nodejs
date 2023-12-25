@@ -1,7 +1,6 @@
 'use strict';
 
 const FPEncryption = require('./FPEncryption');
-const CharMap = require('./CharMap');
 const crypto = require('crypto');
 const BASE64 = require('./common-utils/Constants').BASE64;
 const CommonUtils = require('./common-utils/CommonUtils');
@@ -10,13 +9,10 @@ let keyByteArr = ''
 let updatedCharMap;
 let maxTlen = 32;
 let ff1String;
-let RADIX = 10;
 let key = '';
 let sec;
 let TWEAK = '';
 let commonUtils = new CommonUtils();
-
-const charMap = new CharMap();
 
 class CryptoUtil {
 
@@ -24,8 +20,6 @@ class CryptoUtil {
         key = secretKey;
         keyByteArr = Buffer.from(key, BASE64);
         sec = crypto.createSecretKey(keyByteArr, BASE64);
-
-        updatedCharMap = charMap.convertToMap(commonUtils.getNumericCharacters());
 
         TWEAK = tweak;
         ff1String = new FPEncryption(secretKey, TWEAK, maxTlen);
@@ -41,6 +35,7 @@ class CryptoUtil {
         plainText = commonUtils.sanitizeTextInput(plainText);
         // sanitized text is used to find the radix
         let radix = commonUtils.getRadix(plainText);
+        updatedCharMap = commonUtils.getUpdatedCharMap();
 
         return ff1String.encrypt(sec, TWEAK, plainText, radix, updatedCharMap);
     }
@@ -56,6 +51,7 @@ class CryptoUtil {
         cipherText = commonUtils.sanitizeTextInput(cipherText);
         // sanitized cipher text is used to find the radix
         let radix = commonUtils.getRadix(cipherText);
+        updatedCharMap = commonUtils.getUpdatedCharMap();
 
         return ff1String.decrypt(keyByteArr, TWEAK, cipherText, radix, updatedCharMap);
     }

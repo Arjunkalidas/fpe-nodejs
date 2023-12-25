@@ -1,8 +1,13 @@
 'use strict';
 
+const CharMap = require('../CharMap');
 const MIN_RADIX = require('./Constants').MIN_RADIX;
 const MAX_RADIX = require('./Constants').MAX_RADIX;
 const MAX_LEN = require('./Constants').MAX_LEN;
+
+const charMap = new CharMap();
+let RADIX = 10;
+let updatedCharMap;
 
 class CommonUtils {
 
@@ -88,7 +93,7 @@ class CommonUtils {
      * A utility function to form a byte array from the given numbers x and s
      * @param {*} x 
      * @param {*} s 
-     * @returns 
+     * @returns a byte array for a string input
      */
     byteArray(x, s) {
         // validate s
@@ -143,7 +148,7 @@ class CommonUtils {
      * A utility function to perform the modulo operation 
      * @param {*} x 
      * @param {*} m 
-     * @returns 
+     * @returns the modulus of x with m
      */
     mod(x, m) {
         // validate m
@@ -158,7 +163,7 @@ class CommonUtils {
      * A utility function to obtain the power of a Big Integer
      * @param {*} x 
      * @param {*} m 
-     * @returns 
+     * @returns mth power for the number x
      */
     pow(x, m) {
         // validate x
@@ -201,6 +206,12 @@ class CommonUtils {
         return ((x % m) < 0 ? (x % m) + m : (x % m)).toString();
     }
 
+    /**
+     * This function is to calculate the num using plain text and radix
+     * @param {*} X  plain text to encrypt or cipher text to decrypt
+     * @param {*} radix the denomenator to calculate the num
+     * @returns a BigInt
+     */
     num(X, radix) {
         // validate x
         if (X == null) {
@@ -229,6 +240,12 @@ class CommonUtils {
         return x;
     }
 
+    /**
+     * This function is to calculate the num using plain text and radix
+     * @param {*} X  plain text to encrypt or cipher text to decrypt
+     * @param {*} radix the denomenator to calculate the num
+     * @returns a string
+     */
     num_byte(X) {
         // validate x
         if (X == null) {
@@ -289,9 +306,6 @@ class CommonUtils {
         for(let i=0; i<charArray.length; i++){
             let currentChar = charArray[i];
             let intValue = allowedCharMap.get(currentChar);
-            if(intValue == null){
-                throw ("Invalid character "+currentChar+" found, in the text provided. Only numbers and alphanumeric characters supported.");
-            }
             plainTextIntArray[i] = intValue;
         }
         return plainTextIntArray;
@@ -309,13 +323,10 @@ class CommonUtils {
         for(let i=0; i<charArray.length; i++){
             let currentChar = charArray[i];
             let intValue = null;
-            for (let [key, value] of allowedCharMap.entries()){
+            for (let [key, value] of allowedCharMap.entries()) {
                 if (value === currentChar){
                     intValue = key;
                 }
-            }
-            if(intValue == null){
-                throw ("Invalid character "+currentChar+" found, in the text provided. Only numbers and alphanumeric characters supported.");
             }
             plainTextIntArray[i] = intValue;
         } 
@@ -351,10 +362,11 @@ class CommonUtils {
      * @returns the radix value as either 10 or 62 depending on the input provided
      */
     getRadix(sanitizedInput) {
+        updatedCharMap = charMap.convertToMap(this.getNumericCharacters());
         let code, i, len;
         for(i=0, len=sanitizedInput.length; i < len; i++) {
             code = sanitizedInput.charCodeAt(i);
-            if(code > 47 && code < 58) {
+            if(code >= 48 && code <= 57) {
                 continue;
             } else if(code > 64 && code < 123) {
                 RADIX = 62;
@@ -363,6 +375,14 @@ class CommonUtils {
             }
         }
         return RADIX;
+    }
+
+    /*
+    * Function to get the updated Char Map after RADIX is decided in getRadix function
+    * If RADIX is 10, it would be a numeric char map, else if it is 62, then alphanumeric char map
+    */
+    getUpdatedCharMap() {
+        return updatedCharMap;
     }
 
     /**
