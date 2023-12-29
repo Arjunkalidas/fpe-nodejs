@@ -300,7 +300,10 @@ class CommonUtils {
      * @param {*} charMap 
      * @returns 
      */
-    convertStringToRadixedIntArray(charArray, charMap){
+    convertStringToRadixedIntArray(charArray, charMap) {
+        if(!charArray) {
+            throw ("charArray cannot be empty or a null value");
+        }
         let plainTextIntArray = new Array(charArray.length);
         let allowedCharMap = charMap;
         for(let i=0; i<charArray.length; i++){
@@ -317,7 +320,10 @@ class CommonUtils {
      * @param {*} charMap 
      * @returns 
      */
-    convertDeRadixedIntArrayToString(charArray, charMap){
+    convertDeRadixedIntArrayToString(charArray, charMap) {
+        if(!charArray) {
+            throw ("charArray cannot be empty or a null value");
+        }
         let plainTextIntArray = new Array(charArray.length);
         let allowedCharMap = charMap;
         for(let i=0; i<charArray.length; i++){
@@ -362,6 +368,9 @@ class CommonUtils {
      * @returns the radix value as either 10 or 62 depending on the input provided
      */
     getRadix(sanitizedInput) {
+        if(!sanitizedInput) {
+            throw ("sanitizedInput cannot be empty or a null value");
+        }
         updatedCharMap = charMap.convertToMap(this.getNumericCharacters());
         let code, i, len;
         for(i=0, len=sanitizedInput.length; i < len; i++) {
