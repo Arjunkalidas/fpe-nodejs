@@ -8,11 +8,12 @@ let mAesEcbCipher = null;
 
 class Ciphers {
 
-    /*
-    *  This is a pseudorandom function that is used to generate a randomized array of the plainText input
-    *  secretKey: the AES key that is base64 decoded
-    *  plainText: the text/data to encrypt
-    */
+    /**
+     * This is a pseudorandom function that is used to generate a randomized array of the plainText input
+     * @param {*} secretKey the AES key that is base64 decoded
+     * @param {*} plainText the text/data to encrypt
+     * @returns 
+     */
     prf(secretKey, plainText) {
         // validate key
         if(!secretKey || secretKey == null) {
@@ -47,11 +48,12 @@ class Ciphers {
         return Y;
     }
 
-    /*
-    *  This is a cipher function used to generate a cipher using AES ECB algorithm and crypto library's cipher creation method
-    *  secretKey: the AES key that is base64 decoded
-    *  plainText: the text/data to encrypt
-    */
+    /**
+     * This is a cipher function used to generate a cipher using AES ECB algorithm and crypto library's cipher creation method
+     * @param {*} secretKey the AES key that is base64 decoded
+     * @param {*} plainText the text/data to encrypt
+     * @returns 
+     */
     ciph(secretKey, plainText) {
         // validate key
         if(!secretKey || secretKey == null) {
@@ -94,10 +96,13 @@ class Ciphers {
     }
 
     /* NOT CURRENTLY USED ANYWHERE, BUT THERE IS A FUTURE FOR THIS FUNCTION */
-    /*
-    *  secretKey: the AES key that is base64 decoded
-    *  plainText: the text/data to encrypt
-    */
+    
+    /**
+     * This function provides an alternative way to perform pseudo randomization by using a AES ECB algorithm
+     * @param {*} secretKey the AES key that is base64 decoded
+     * @param {*} plainText the text/data to encrypt
+     * @returns 
+     */
     prf_alt(secretKey, plainText) {
         // validate key
         if(!secretKey || secretKey == null) {
