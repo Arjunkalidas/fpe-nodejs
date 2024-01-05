@@ -113,6 +113,7 @@ class FF1 {
 
         const P = [0x01, 0x02, 0x01, tbr[0], tbr[1], tbr[2], 0x0A, b1, fbn[0], fbn[1], fbn[2], fbn[3], fbt[0], fbt[1], fbt[2], fbt[3]];
 
+        // iterating for 10 times as per the NIST specs for FF-1 mode of encryption
         for (let i = 0; i < NUM_ROUNDS; i++) {
             let tbMod = commonUtils.mod(-t - b - 1, 16);
             let tbModByteArray = commonUtils.byteArray(0, tbMod);
@@ -226,6 +227,7 @@ class FF1 {
 
         const P = [0x01, 0x02, 0x01, tbr[0], tbr[1], tbr[2], 0x0A, b1, fbn[0], fbn[1], fbn[2], fbn[3], fbt[0], fbt[1], fbt[2], fbt[3]];
 
+        // iterating for 10 times as per the NIST specs for FF-1 mode of decryption
         for (let i = NUM_ROUNDS-1; i >= 0; i--) {
             let tbMod = commonUtils.mod(-t - b - 1, 16);
             let tbModByteArray = commonUtils.byteArray(0, tbMod);
