@@ -44,6 +44,7 @@ class Ciphers {
             }
             Y.set(this.ciph(secretKey, temp));
         }
+        // slicing the first 16 bits from the resultant array, because rest of the array 16 bits is padding
         Y = Y.slice(0, 16);
         return Y;
     }

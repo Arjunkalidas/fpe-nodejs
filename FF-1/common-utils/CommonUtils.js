@@ -6,7 +6,9 @@ const MAX_RADIX = require('./Constants').MAX_RADIX;
 const MAX_LEN = require('./Constants').MAX_LEN;
 
 const charMap = new CharMap();
+/** RADIX is defined as 10 initially and a RADIX value of 10 corresponds to that being numeric. */
 let RADIX = 10;
+/** Char Map for numeric or alphanumeric input is determined based on the RADIX */
 let updatedCharMap;
 
 class CommonUtils {

@@ -1,7 +1,5 @@
 'use strict';
 
-// TODO: abstract out any constants and export the module to consume in other files
-
 const ENCRYPTION_MODE = "ENCYRPTION_MODE";
 
 const DECRYPTION_MODE = "DECRYPTION_MODE";
