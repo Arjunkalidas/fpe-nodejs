@@ -3,8 +3,11 @@
 const FF1 = require('./FF1');
 const CommonUtils = require('./common-utils/CommonUtils');
 
+/** Character Array formay of the plaintext input   */
 let charArray;
+/** Maximum Tweak Length permitted */
 let MAXTLen;
+/** Common Utils class instantiation */
 let commonUtils = new CommonUtils();
 
 class FPEncryption extends FF1 {

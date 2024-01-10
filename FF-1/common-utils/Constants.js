@@ -15,28 +15,28 @@ const FF1 = "FF1";
 /** FF3 mode */
 const FF3 = "FF3";
 
-/** AES_ECB_ALGORITHM */
+/** AES ECB ALGORITHM */
 const AES_ECB_ALGORITHM = 'aes-256-ecb';
 
-/** AES_CBC_ALGORITHM */
+/** AES CBC ALGORITHM */
 const AES_CBC_ALGORITHM = 'aes-256-cbc';
 
-/** MAX_LEN */
+/** MAX LEN of input */
 const MAX_LEN = 4096;
 
-/** MIN_RADIX */
+/** MIN RADIX permitted */
 const MIN_RADIX = 2;
 
-/** MAX_RADIX */
+/** MAX RADIX permitted */
 const MAX_RADIX = 65536;
 
-/** MIN_LEN */
+/** MIN LEN of the input */
 const MIN_LEN = 2;
 
-/** NUM_ROUNDS */
+/** NUM ROUNDS of iteration to achieve FF1 mode */
 const NUM_ROUNDS = 10;
 
-/** BASE64 */
+/** BASE 64 mode for text encoding */
 const BASE64 = "base64";
 
 module.exports = {
