@@ -5,13 +5,21 @@ const crypto = require('crypto');
 const BASE64 = require('./common-utils/Constants').BASE64;
 const CommonUtils = require('./common-utils/CommonUtils');
 
+/** Key Byte Array of the input text */
 let keyByteArr = ''
+/** Char map that gets updated upon RADIX selection */
 let updatedCharMap;
+/** Maximum Tweak length permitted */
 let maxTlen = 32;
+/** FF1 String is the final encrypted/decrypted output */
 let ff1String;
+/** Base 64 encoded 44 byte Key used to encrypt/decrypt  */
 let key = '';
+/** The secret key after Base 64 decoding */
 let sec;
+/** Numeric/alphanumeric Tweak string */
 let TWEAK = '';
+/** Common Utils instantiation */
 let commonUtils = new CommonUtils();
 
 class CryptoUtil {
