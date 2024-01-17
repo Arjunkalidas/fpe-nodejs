@@ -21,6 +21,17 @@ The following behaviors are expected and requested of all community members:
 * Refrain from demeaning, discriminatory, or harassing behavior and speech.
 * Be mindful of your fellow participants. Alert project owners if you notice a contentious comment, someone violating the community guidelines, or violations of this Code of Conduct, even if they seem inconsequential.
 
+## Unacceptable Behavior
+
+The following behaviors are considered harassment and are unacceptable within this community:
+* Harsh language directed against another person in the comments or threads section of a Pull request.
+* Sexist, racist, homophobic, transphobic, ableist or otherwise discriminatory jokes and language.
+* Posting or displaying sexually explicit or violent material.
+* Posting or threatening to post other people’s personally identifying information ("doxing").
+* Personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.
+* Advocating for, or encouraging, any of the above behavior.
+* Sustained disruption of repository's normal functioning, including development work or reviews.
+
 ## License Guidelines to follow
 
 Please adhere to Apache 2.0 license while reusing, or modifying this project and provide credits where it is due if you include any new packages, libraries or code samples written by fellow developers.
