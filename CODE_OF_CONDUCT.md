@@ -32,6 +32,14 @@ The following behaviors are considered harassment and are unacceptable within th
 * Advocating for, or encouraging, any of the above behavior.
 * Sustained disruption of repository's normal functioning, including development work or reviews.
 
+## Consequences of Unacceptable Behavior
+
+Unacceptable behavior from any community member, including owners, primary contributors and those with decision-making authority, will not be tolerated.
+
+Anyone displaying unacceptable/unprofessional behavior will be given a warning and temporary ban depending on the severity. After investigating the matter, further action will be taken that may result in reinstating the privileges in the repository, or permanent ban. If the severity of the situation is serious, immediate action resulting expulsion from the repo will be instituted. Any future pull requests will be denied.
+
+There won't be a second warning. We have zero tolerance for any unacceptable behavior. For any queries, please reach out to the owners via their email addresses.
+
 ## License Guidelines to follow
 
 Please adhere to Apache 2.0 license while reusing, or modifying this project and provide credits where it is due if you include any new packages, libraries or code samples written by fellow developers.
