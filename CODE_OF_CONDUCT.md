@@ -40,6 +40,16 @@ Anyone displaying unacceptable/unprofessional behavior will be given a warning a
 
 There won't be a second warning. We have zero tolerance for any unacceptable behavior. For any queries, please reach out to the owners via their email addresses.
 
+## Reporting Guidelines
+
+If you are subject to or notice unacceptable behavior, or have any other concerns, please notify the repository owners as soon as possible. (askjaykal@mail.com)[Arjun Kalidas].
+
+Additionally, repository owners & other primary contributors are available at your disposal for any queries or concerns.
+
+## Addressing Grievances
+   
+If you feel you have been falsely or unfairly accused of violating this Code of Conduct, you should notify us immediately via email.
+
 ## License Guidelines to follow
 
 Please adhere to Apache 2.0 license while reusing, or modifying this project and provide credits where it is due if you include any new packages, libraries or code samples written by fellow developers.
