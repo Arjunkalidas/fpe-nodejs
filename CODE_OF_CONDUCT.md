@@ -50,6 +50,10 @@ Additionally, repository owners & other primary contributors are available at yo
    
 If you feel you have been falsely or unfairly accused of violating this Code of Conduct, you should notify us immediately via email.
 
+## Scope
+
+We expect all community participants (contributors, paid or otherwise; sponsors; and other guests) to abide by this Code of Conduct in all community venues–online and in-person–as well as in all one-on-one communications pertaining to repository contributions.
+
 ## License Guidelines to follow
 
 Please adhere to Apache 2.0 license while reusing, or modifying this project and provide credits where it is due if you include any new packages, libraries or code samples written by fellow developers.
