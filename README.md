@@ -41,6 +41,10 @@ const decryptedText = cryptoUtil.decrypt(cipherText);
 ## How to get involved?
 For more information, on how to get involved and contribute, please head over to the Contributions document. It is a WIP, more updates coming soon.
 
+## Code of Conduct
+
+Refer to the Code of Conduct before contributing to this repository, as well as use the document as a reference when you interact with fellow software developers and contributors.
+
 ## Future updates
 - The library supports numbers, alphanumeric and alphabets as input and tweak, but that could be expanded to support a limited set of special characters
 - The encryption mode used is AES ECB, but planning to support CBC mode soon
