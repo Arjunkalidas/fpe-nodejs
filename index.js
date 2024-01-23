@@ -16,7 +16,7 @@ const encryptDecryptUtil = new cryptoUtil(key, tweak);
 const cipherText = encryptDecryptUtil.encrypt(plainText);
 console.log("cipher text :: ",cipherText);
 
+// Decrypted util invocation
 const decryptedText = encryptDecryptUtil.decrypt(cipherText);
-
 console.log("decryptedText :: ", decryptedText);
 
