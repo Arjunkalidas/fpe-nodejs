@@ -8,9 +8,11 @@ const MIN_LEN = require('./common-utils/Constants').MIN_LEN;
 const MAX_LEN = require('./common-utils/Constants').MAX_LEN;
 const NUM_ROUNDS = require('./common-utils/Constants').NUM_ROUNDS;
 
+// Max Tweak Length
 let MAXTlen = 32;
-
+// cipher initialization
 const ciphers = new Ciphers();
+// common utils initialization
 const commonUtils = new CommonUtils();
 
 class FF1 {
@@ -29,11 +31,12 @@ class FF1 {
             throw ("Tweak cannot be null, it must hold a value or pass an empty string if not using.");
         }
 
+        // validate tweak for Max Tweak length
         if (tweak.length > MAXTlen) {
             throw ("Tweak cannot have length greater than MAXTlen, you have provided "+tweak.length);
         }
 
-        // validate maxTlen
+        // validate if Max Tweak length less than 0 or greater than maximum length
         if (MAXTlen < 0 || MAXTlen > MAX_LEN) {
             throw ("MAXTlen must be in the the range [0..4096], you have provided "+ maxTlen);
         }
@@ -58,6 +61,7 @@ class FF1 {
             throw ("Tweak cannot be null, it must hold a value or pass an empty string if not using.");
         }
 
+        // validate tweak length against max length
         if (tweak.length > MAXTlen) {
             throw ("Tweak cannot have length greater than MAXTlen, you have provided "+tweak.length);
         }
@@ -72,10 +76,12 @@ class FF1 {
             throw ("Plain text input to encrypt must not be null or empty.");
         }
 
+        // validate if plain text input length less than min length or less than max length
         if (plainText.length < MIN_LEN || plainText.length > MAX_LEN) {
             throw ("The length of the plain text input to encrypt should be within the permitted range of "+ MIN_LEN +" and " + MAX_LEN + ". You have provided " + plainText.length);
         }
 
+        // validate the radix raised to plain text length is less than 100 
         if (Math.pow(radix, plainText.length) < 100) {
             throw ("The length of plain text to encrypt must be such that radix ^ length > 100, but here (radix ^ length = "+ Math.pow(radix, plainText.length));
         }
@@ -175,6 +181,7 @@ class FF1 {
             throw ("Tweak cannot be null, it must hold a value or pass an empty string if not using.");
         }
 
+        // validate tweak length is greater than Maximum tweak length
         if (tweak.length > MAXTlen) {
             throw ("Tweak cannot have length greater than MAXTlen, you have provided "+tweak.length);
         }
@@ -189,10 +196,12 @@ class FF1 {
             throw ("Cipher text input to deccrypt must not be null or empty.");
         }
 
+        // validate if cipher text is length less than min length and greater than max length
         if (cipherText.length < MIN_LEN || cipherText.length > MAX_LEN) {
             throw ("The length of the cipher text input to decrypt should be within the permitted range of "+ MIN_LEN +" and " + MAX_LEN + ". You have provided " + cipherText.length);
         }
 
+        // validate the radix raised to plain text length is less than 100 
         if (Math.pow(radix, cipherText.length) < 100) {
             throw ("The length of cipher text to decrypt must be such that radix ^ length > 100, but here (radix ^ length = "+ Math.pow(radix, cipherText.length));
         }
