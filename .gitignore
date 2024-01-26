@@ -3,6 +3,11 @@
 *.tmp
 package-lock.json
 /coverage/
+/tmp/
+/build/
+/dist/
+*.log
+*.tgz
 
 .vscode/*
 .vscode
@@ -14,11 +19,12 @@ package-lock.json
 
 npm-debug.log
 yarn-error.log
+yarn-debug.log
 testem.log
 /typings
-
 
 .DS_Store
 Thumbs.db
 /.vs
 /.editorconfig
+.npm
