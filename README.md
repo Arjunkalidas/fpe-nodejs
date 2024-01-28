@@ -21,6 +21,10 @@ These FPE modes fit within the larger FFX framework, submitted to NIST for const
 In addition to formatted data, each FPE mode considers an additional input known as the "tweak," a changeable part of the key determining encryption and decryption functions. Tweaks play a crucial role, especially when the possible values for confidential data are limited. FF1 and FF3 offer distinct performance advantages, with FF1 supporting a broader range of protected data lengths and tweak flexibility, while FF3 achieves higher throughput due to its lower round count.
 
 ## How to use
+
+The entry point of the project is the [index.js](https://github.com/Arjunkalidas/fpe-nodejs/blob/develop/index.js) file located at the root level. Any testing you would like to perform, can begin here. You may try different input texts, tweaks and keys as per your needs, but please be aware of the lower and upper bound of all the inputs you provide.
+
+
 ```
 const cryptoUtil = require('./FF-1/CryptoUtil');
 
@@ -39,11 +43,11 @@ const decryptedText = cryptoUtil.decrypt(cipherText);
 ```
 
 ## How to get involved?
-For more information, on how to get involved and contribute, please head over to the Contributions document. It is a WIP, more updates coming soon.
+For more information, on how to get involved and contribute, please head over to the [Contributions](https://github.com/Arjunkalidas/fpe-nodejs/blob/develop/Contributions.md) document. It is a WIP, more updates coming soon.
 
 ## Code of Conduct
 
-Refer to the Code of Conduct before contributing to this repository, as well as use the document as a reference when you interact with fellow software developers and contributors.
+Refer to the [Code of Conduct](https://github.com/Arjunkalidas/fpe-nodejs/blob/develop/CODE_OF_CONDUCT.md) before contributing to this repository, as well as use the document as a reference when you interact with fellow software developers and contributors.
 
 ## Future updates
 - The library supports numbers, alphanumeric and alphabets as input and tweak, but that could be expanded to support a limited set of special characters
