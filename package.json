@@ -8,7 +8,7 @@
         "build": "npm run build"
     },
     "author": "Arjun Kalidas <askjaykal@mail.com>",
-    "contributors": "Paineer Balaji Giri",
+    "contributors": ["Paineer Balaji Giri <balaji.p.giri@gmail.com>"],
     "dependencies": {
         "crypto-js": "^4.1.1"
     },
