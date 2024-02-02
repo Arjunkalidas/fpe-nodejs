@@ -31,13 +31,13 @@ But, here we'll be showing how we expect the message for a pull request should b
     * dependency-upgrade,
     * vulnerability & documentation
 * Mention the change or changes, if there are more than one, as bullet points in the description field
-* An example of a PR is provided below:
-  `Branch Name: CodeCommentsInUtils/develop`__
-  `Title: Adding code comments in CommonUtils.js`__
-  `Description:`__
-   `- added code comments for utility functions in CommonUtils.js`__
-   `- added method descriptions in block comments`__
-   `- cleaned up typos and redundant comments`__
+* An example of a PR is provided below:\
+  `Branch Name: CodeCommentsInUtils/develop`\
+  `Title: Adding code comments in CommonUtils.js`\
+  `Description:`\
+   `- added code comments for utility functions in CommonUtils.js`\
+   `- added method descriptions in block comments`\
+   `- cleaned up typos and redundant comments`\
 
 ## Testing
 
