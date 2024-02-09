@@ -1,6 +1,6 @@
 {
     "name": "fpe-node",
-    "version": "1.0.0",
+    "version": "1.2.80",
     "description": "A nodejs library for Format Preserving Encryption that encrypts & decrypts the input in FF1 mode",
     "main": "index.js",
     "scripts": {
@@ -10,7 +10,7 @@
     "author": "Arjun Kalidas <askjaykal@mail.com>",
     "contributors": ["Paineer Balaji Giri <balaji.p.giri@gmail.com>"],
     "dependencies": {
-        "crypto-js": "^4.1.1"
+        "crypto-js": "^4.2.0"
     },
       "engines": {
         "node": ">=18.0.0"

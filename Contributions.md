@@ -25,11 +25,21 @@ Here is a good resource by Github on steps to create a pull request
 But, here we'll be showing how we expect the message for a pull request should be drafted.
 
 * Mention the change or topic clearly and briefly
-* Mention the type of PR, in your title, within parentheses - ex: defect, feature, upgrade, vulnerability etc
-* The main 5 categories, we would request you to include are: defect-fix, feature-request, dependency-upgrade, vulnerability & documentation
-* Mention the change or changes, if there are many, as bullet points in the description field
-* An example of a PR is provided below:
-  coming soon...
+* Mention the type of PR, in your title, within parentheses if that falls under one of the below categories:
+    * defect-fix,
+    * feature-request,
+    * dependency-upgrade,
+    * vulnerability & documentation
+* Mention the change or changes, if there are more than one, as bullet points in the description field
+### Sample PR template below:
+  ---
+  `Branch Name`: CodeCommentsInUtils/develop\
+  `Title`: Adding code comments in CommonUtils.js\
+  `Description:`
+   - added code comments for utility functions in CommonUtils.js
+   - added method descriptions in block comments
+   - cleaned up typos and redundant comments
+  ---
 
 ## Testing
 
