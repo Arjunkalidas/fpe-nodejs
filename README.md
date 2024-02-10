@@ -1,7 +1,7 @@
 # fpe-nodejs (FF1)
 
 ## Background
-This is a repository for format preserving encryption in FF-1 mode written in Nodejs (Javascript)
+This is a repository for format preserving encryption in FF-1 mode written in Nodejs.
 
 We have used the NIST recommended specifications and guidelines to create a Javascript equivalent of this library. There are implementations out there in Java for FF1 & FF3, and Nodejs for FF3 mode, but none for FF1 mode in Nodejs, hence we decided to create this repo.
 
