@@ -60,10 +60,10 @@ class FF1 {
 
     /**
      * Function to encrypt a provided string - numeric or alphanumeric
-     * @param {*} secretKey base 64 decoded key
-     * @param {*} tweak padding (optional)
-     * @param {*} radix radix is 10 for numeric & 62 for alphanumeric
-     * @param {*} plainText the input text to encrypt
+     * @param {*} secretKey: decoded base64 key
+     * @param {*} tweak: padding (optional)
+     * @param {*} radix: radix is 10 for numeric & 62 for alphanumeric
+     * @param {*} plainText: the input text to encrypt
      * @returns 
      */
     encrypt(secretKey, tweak, radix, plainText) {
@@ -122,7 +122,7 @@ class FF1 {
         let d = 4 * Math.ceil(b / 4.0) + 4;
 
         // Javascript bitwise operations work on 32-bit signed integers, so if the values of radix, n, t, or u
-        // are larger than 32 bits, you may have to adjust the MAXTlen accordingly
+        // are larger than 32 bits, it is recommended to adjust the MAXTlen accordingly
         const tbr = commonUtils.byteArray(radix, 3);
         const fbn = commonUtils.byteArray(n, 4);
         const fbt = commonUtils.byteArray(t, 4);
@@ -135,7 +135,7 @@ class FF1 {
 
         const P = [0x01, 0x02, 0x01, tbr[0], tbr[1], tbr[2], 0x0A, b1, fbn[0], fbn[1], fbn[2], fbn[3], fbt[0], fbt[1], fbt[2], fbt[3]];
 
-        // iterating for 10 times as per the NIST specs for FF-1 mode of encryption
+        // iterating for 10 times as per the NIST specification for FF-1 mode of encryption
         for (let i = 0; i < NUM_ROUNDS; i++) {
             let tbMod = commonUtils.mod(-t - b - 1, 16);
             let tbModByteArray = commonUtils.byteArray(0, tbMod);
@@ -180,10 +180,10 @@ class FF1 {
 
     /**
      * Function to decrypt the cipher text that was encrypted using FPE FF1 encryption logic
-     * @param {*} secretKey the base 64 decoded key
-     * @param {*} tweak the padding (optional)
-     * @param {*} radix radix is 10 for numeric or 62 for alphanumeric
-     * @param {*} cipherText the cipher text that will be decrypted
+     * @param {*} secretKey: decoded base64 key
+     * @param {*} tweak: the padding (optional)
+     * @param {*} radix: radix is 10 for numeric or 62 for alphanumeric
+     * @param {*} cipherText: the cipher text that is decrypted
      * @returns 
      */
     decrypt(secretKey, tweak, radix, cipherText) {
@@ -252,7 +252,7 @@ class FF1 {
 
         const P = [0x01, 0x02, 0x01, tbr[0], tbr[1], tbr[2], 0x0A, b1, fbn[0], fbn[1], fbn[2], fbn[3], fbt[0], fbt[1], fbt[2], fbt[3]];
 
-        // iterating for 10 times as per the NIST specs for FF-1 mode of decryption
+        // iterating for 10 times as per the NIST specification for FF-1 mode of decryption
         for (let i = NUM_ROUNDS-1; i >= 0; i--) {
             let tbMod = commonUtils.mod(-t - b - 1, 16);
             let tbModByteArray = commonUtils.byteArray(0, tbMod);
