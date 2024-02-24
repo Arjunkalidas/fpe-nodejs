@@ -55,7 +55,7 @@ class CommonUtils {
         return newArr;
     }
 
-    /**
+    /*
      * A utility function to copy the elements from an array to another from a particular source index to destination index
      * @param {*} src 
      * @param {*} srcIndex 
@@ -68,7 +68,7 @@ class CommonUtils {
         dest.splice(destIndex, length, ...src.slice(srcIndex, srcIndex + length));
     }
 
-    /**
+    /*
      * A utility function to calculate the XOR value of given bytes
      * @param {*} X 
      * @param {*} Y 
@@ -81,6 +81,7 @@ class CommonUtils {
             throw ("X must not be null");
         }
 
+        // validate x for length
         if(X.length < 1 || X.length > MAX_LEN) {
             throw ("The length of X is not within the permitted range of 1 .." + MAX_LEN + " instead it is " + X.length);
         }
@@ -90,10 +91,12 @@ class CommonUtils {
             throw ("Y must not be null");
         }
 
+        // validate Y for length
         if (Y.length < 1 || Y.length > MAX_LEN) {
             throw ("The length of Y is not within the permitted range of 1 .." + MAX_LEN + " instead it is " + Y.length)
         }
 
+        // validate if x and y are of same length
         if (Y.length != X.length) {
             throw ("X and Y must be the same length. X: " + X.length + " Y: " + Y.length);
         }
@@ -108,7 +111,7 @@ class CommonUtils {
         return Z;
     }
 
-    /**
+    /*
      * A utility function to form a byte array from the given numbers x and s
      * @param {*} x 
      * @param {*} s 
@@ -125,6 +128,7 @@ class CommonUtils {
             throw ("x must be a positive integer");
         }
 
+        // validate x is not greater than 256 power s
         if (x >= Math.pow(256, s)) {
             throw ("x must be less than 256^"+s+ " (" + x + " >= " + Math.pow(256, s) + ")");
         }
@@ -163,7 +167,7 @@ class CommonUtils {
         return arr;
     }
 
-    /**
+    /*
      * A utility function to perform the modulo operation 
      * @param {*} x 
      * @param {*} m 
@@ -178,7 +182,7 @@ class CommonUtils {
         return x - m * Math.floor(x / m);
     }
 
-    /**
+    /*
      * A utility function to obtain the power of a Big Integer
      * @param {*} x 
      * @param {*} m 
@@ -200,7 +204,7 @@ class CommonUtils {
         return y ** n;
     }
 
-    /**
+    /*
      * A utility function to perform modulo operation for a Big Integer data type
      * @param {*} x 
      * @param {*} m 
@@ -266,15 +270,17 @@ class CommonUtils {
      * @returns a string
      */
     num_byte(X) {
-        // validate x
+        // validate x for null values
         if (X == null) {
             throw ("X must not be null");
         }
 
+        // validate x for strings
         if (X == NaN) {
             throw ("X must not be a valid integer");
         }
 
+        // validate x for length
         if(X.length < 1 || X.length > MAX_LEN) {
             throw ("The length of X is not within the permitted range of 1 .." + MAX_LEN + " instead it is " + X.length);
         }
