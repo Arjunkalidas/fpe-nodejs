@@ -43,4 +43,10 @@ But, here we'll be showing how we expect the message for a pull request should b
 
 ## Testing
 
-Coming soon...
+To execute the module, use the command below:
+
+```node --trace-uncaught index.js```
+
+and to execute tests, execute:
+
+```npm run test```

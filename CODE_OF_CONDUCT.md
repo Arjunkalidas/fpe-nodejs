@@ -8,7 +8,7 @@ This code of conduct outlines our expectations for all those who participate in 
 
 ## Open [Source/Culture/Tech]
 
-A short and long term goal of this Code of Conduct is to increase openness in the true sense of the word by encouraging participants to recognize and hold the community memebers accountable for their actions, i.e., contributions. Communities/repositories like these help developers and tech professionals learn, understand and implement encryption as part of their projects 
+A short and long term goal of this Code of Conduct is to increase openness in the true sense of the word by encouraging participants to recognize and hold the community memebers accountable for their actions, i.e., contributions respectievely. Communities/repositories like these help developers and tech professionals learn, understand and implement encryption as part of their projects. 
 
 If you see someone who is making an extra effort to ensure our community is welcoming, friendly, and encourages all participants to contribute to the fullest extent, we want to know.
 
