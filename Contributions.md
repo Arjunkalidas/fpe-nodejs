@@ -2,6 +2,7 @@
 
 ## How to contribute?
 
+We are looking for all sorts of contributions including but not limited to defect fixes, test coverage, and documentation.
 If it is a feature request, please discuss with us as we have certain defined roadmap and some of the new suggestions may not be priority right now. But if the feature is viable and adds significant value immediately to the consumer, we will bump it up to the top of the backlog.
 
 
@@ -50,3 +51,5 @@ To execute the module, use the command below:
 and to execute tests, execute:
 
 ```npm run test```
+
+Note: Test suite is a WIP, feel free to contribute to improve the test coverage and testability of the code.
