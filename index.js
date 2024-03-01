@@ -14,6 +14,7 @@
 *   limitations under the License.
 */
 
+// importing cryptoUtil from FF-1 library
 const cryptoUtil = require('./FF-1/CryptoUtil');
 
 // 44 bytes in length - 16 bytes base64 encoded
@@ -27,12 +28,13 @@ const plainText = "7693804ABC3407980"; // can be account numbers, SSN, driving l
 console.log("plain Text input :: ",plainText);
 
 // initialize crypto util by creating an instance and passing the key & tweak to the constructor
+// this instance need not be created multiple times
 const encryptDecryptUtil = new cryptoUtil(key, tweak);
-// call the invoke method and pass the data to encrypt
+// invoke the encrypt function and pass the data to encrypt
 const cipherText = encryptDecryptUtil.encrypt(plainText);
 console.log("cipher text :: ",cipherText);
 
-// Decrypted util invocation
+// invoke the decrypt function to decrypt the encrypted text
 const decryptedText = encryptDecryptUtil.decrypt(cipherText);
 console.log("decryptedText :: ", decryptedText);
 
