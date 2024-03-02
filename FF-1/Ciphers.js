@@ -20,6 +20,7 @@ const crypto = require('crypto');
 const AES_ECB_ALGORITHM = require('./common-utils/Constants').AES_ECB_ALGORITHM;
 const MAX_LEN = require('./common-utils/Constants').MAX_LEN;
 
+/* AES ECB Cipher declaration */
 let mAesEcbCipher = null;
 
 class Ciphers {
@@ -52,6 +53,7 @@ class Ciphers {
         let Y = new Int8Array(32);
         Y.fill(0);
 
+        // create cipher - 32 bytes
         for(let j=0; j<m; j++) {
             let Xj = X.slice(j * 16, j * 16 + 16);
             let temp = new Int8Array(16);
