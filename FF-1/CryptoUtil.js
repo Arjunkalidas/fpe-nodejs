@@ -60,7 +60,7 @@ class CryptoUtil {
         // sanitized text is used to find the radix
         let radix = commonUtils.getRadix(plainText);
         updatedCharMap = commonUtils.getUpdatedCharMap();
-
+        // initiate the encrypt function of ff1 wrapper
         return ff1String.encrypt(sec, TWEAK, plainText, radix, updatedCharMap);
     }
 
@@ -76,7 +76,7 @@ class CryptoUtil {
         // sanitized cipher text is used to find the radix
         let radix = commonUtils.getRadix(cipherText);
         updatedCharMap = commonUtils.getUpdatedCharMap();
-
+        // initiate the decrypt function of ff1 wrapper
         return ff1String.decrypt(keyByteArr, TWEAK, cipherText, radix, updatedCharMap);
     }
 }
