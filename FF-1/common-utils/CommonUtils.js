@@ -208,7 +208,7 @@ class CommonUtils {
      * A utility function to perform modulo operation for a Big Integer data type
      * @param {*} x 
      * @param {*} m 
-     * @returns 
+     * @returns the modulus when x is divided by m, and the value returned will be in BigInteger type
      */
     modBigInt(x, m) {
         // validate x
@@ -267,7 +267,7 @@ class CommonUtils {
      * This function is to calculate the num using plain text and radix
      * @param {*} X  plain text to encrypt or cipher text to decrypt
      * @param {*} radix the denomenator to calculate the num
-     * @returns a string
+     * @returns a byte string
      */
     num_byte(X) {
         // validate x for null values
@@ -323,7 +323,7 @@ class CommonUtils {
      * A utility function to convert the given string to a radixed integer array
      * @param {*} charArray 
      * @param {*} charMap 
-     * @returns 
+     * @returns the string value converted to radixex int array in plain text format
      */
     convertStringToRadixedIntArray(charArray, charMap) {
         if(!charArray) {
