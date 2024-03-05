@@ -6,7 +6,7 @@ A primary goal of `fpe-nodejs` community is to be inclusive to the largest numbe
 
 This code of conduct outlines our expectations for all those who participate in our community, as well as the consequences for unacceptable behavior. We invite all those who participate in `fpe-nodejs` community to help us create safe and positive experiences for everyone.
 
-## Open [Source/Culture/Tech]
+## Open (Source/Culture/Tech)
 
 A short and long term goal of this Code of Conduct is to increase openness in the true sense of the word by encouraging participants to recognize and hold the community memebers accountable for their actions, i.e., contributions respectievely. Communities/repositories like these help developers and tech professionals learn, understand and implement encryption as part of their projects. 
 
@@ -42,7 +42,7 @@ There won't be a second warning. We have zero tolerance for any unacceptable beh
 
 ## Reporting Guidelines
 
-If you are subject to or notice unacceptable behavior, or have any other concerns, please notify the repository owners as soon as possible. (askjaykal@mail.com)[Arjun Kalidas].
+If you are subject to or notice unacceptable behavior, or have any other concerns, please notify the repository owners as soon as possible. [Arjun Kalidas](askjaykal@mail.com).
 
 Additionally, repository owners & other primary contributors are available at your disposal for any queries or concerns.
 
@@ -58,4 +58,4 @@ We expect all community participants (contributors, paid or otherwise; sponsors;
 
 Please adhere to Apache 2.0 license while reusing, or modifying this project and provide credits where it is due if you include any new packages, libraries or code samples written by fellow developers.
 
-Make sure to follow the pull request instructions mentioned in the `Contributions.md` when a new change, defect fix or feature is requested.
+Make sure to follow the pull request instructions mentioned in the [Contributions.md](https://github.com/Arjunkalidas/fpe-nodejs/blob/develop/Contributions.md) when a new change, defect fix or feature is requested.
