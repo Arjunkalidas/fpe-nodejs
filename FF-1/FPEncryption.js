@@ -35,11 +35,11 @@ class FPEncryption extends FF1 {
 
     /**
      * Wrapper method to encrypt 
-     * @param {*} secretKey 
-     * @param {*} tweak 
-     * @param {*} plainText 
-     * @param {*} radix 
-     * @param {*} charMap 
+     * @param {*} secretKey the base64 encoded key
+     * @param {*} tweak the initialization vector (optional)
+     * @param {*} plainText the plain text to encrypt
+     * @param {*} radix the value to determine the numeral system used
+     * @param {*} charMap the character map for alphanumeric values
      * @returns the encrypted cipher text
      */
     encrypt(secretKey, tweak, plainText, radix, charMap) {
@@ -53,11 +53,11 @@ class FPEncryption extends FF1 {
 
     /**
      * Wrapper method to decrypt
-     * @param {*} secretKey 
-     * @param {*} tweak 
-     * @param {*} cipherText 
-     * @param {*} radix 
-     * @param {*} charMap 
+     * @param {*} secretKey the base64 encoded key
+     * @param {*} tweak the initialization vector (optional)
+     * @param {*} cipherText the encrypted form of the input
+     * @param {*} radix the value to determine the numeral system used
+     * @param {*} charMap the character map for alphanumeric values
      * @returns the decrypted plain text
      */
     decrypt(secretKey, tweak, cipherText, radix, charMap) {

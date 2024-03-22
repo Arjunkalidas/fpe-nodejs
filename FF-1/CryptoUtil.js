@@ -51,8 +51,8 @@ class CryptoUtil {
 
     /**
      * Function that is invoked by the consumer of this library to encrypt a text/number/alphanumeric value
-     * @param {*} plainText the plain text input passed to be encrypted
-     * @returns the cipher value after FPE FF1 mode of encryption
+     * @param {*} plainText the plain text to encrypt
+     * @returns the cipher generated from FPE FF1 mode of encryption
      */
     encrypt(plainText) {
         // sanitize the text input
@@ -67,7 +67,7 @@ class CryptoUtil {
     /**
      * Function that is invoked by the consumer of this library to decrypt the cipher text that is encrypted using the same
      * logic & base64 encoded key
-     * @param {*} cipherText the cipher text that is passed to be decrypted
+     * @param {*} cipherText the cipher text to decrypt
      * @returns the decrypted plain text value after decryption
      */
     decrypt(cipherText) {

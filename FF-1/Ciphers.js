@@ -27,8 +27,8 @@ class Ciphers {
 
     /**
      * This is a pseudorandom function that is used to generate a randomized array of the plainText input
-     * @param {*} secretKey the AES key that is base64 decoded
-     * @param {*} plainText the text/data to encrypt
+     * @param {*} secretKey base64 decoded AES key
+     * @param {*} plainText the plain text to encrypt
      * @returns 
      */
     prf(secretKey, plainText) {
@@ -69,8 +69,8 @@ class Ciphers {
 
     /**
      * This is a cipher function used to generate a cipher using AES ECB algorithm and crypto library's cipher creation method
-     * @param {*} secretKey the AES key that is base64 decoded
-     * @param {*} plainText the text/data to encrypt
+     * @param {*} secretKey base64 decoded AES key
+     * @param {*} plainText the plain text to encrypt
      * @returns 
      */
     ciph(secretKey, plainText) {
