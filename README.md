@@ -21,7 +21,6 @@ These FPE modes fit within the larger FFX framework, submitted to NIST for const
 In addition to formatted data, each FPE mode considers an additional input known as the "tweak," a changeable part of the key determining encryption and decryption functions. Tweaks play a crucial role, especially when the possible values for confidential data are limited. FF1 and FF3 offer distinct performance advantages, with FF1 supporting a broader range of protected data lengths and tweak flexibility, while FF3 achieves higher throughput due to its lower round count.
 
 ## How to use
-
 The entry point of the project is the [index.js](https://github.com/Arjunkalidas/fpe-nodejs/blob/develop/index.js) file located at the root level. Any testing you would like to perform, can begin here. You may try different input texts, tweaks and keys as per your needs, but please be aware of the lower and upper bound of all the inputs you provide.
 
 
@@ -29,7 +28,7 @@ The entry point of the project is the [index.js](https://github.com/Arjunkalidas
 const cryptoUtil = require('./FF-1/CryptoUtil');
 
 let key = "base64 encoded key here"; // eg: "TAMNxdIPhUrR4ONYGHoXJ9357F4oe+H+vFwm8f2kc7I="
-// Tweak should be 32 characters or less. Tweak is an optional field, which you can leave empty if not required.
+// Tweak should be 32 characters or less. Tweak is an optional field.
 let tweak = ""
 
 // maximum length of plain text cannot exceed 4096
@@ -46,7 +45,6 @@ const decryptedText = cryptoUtil.decrypt(cipherText);
 For more information, on how to get involved and contribute, please head over to the [CONTRIBUTIONS.md](https://github.com/Arjunkalidas/fpe-nodejs/blob/develop/Contributions.md) document. It is a WIP, more updates coming soon.
 
 ## Code of Conduct
-
 Refer to the [CODE_OF_CONDUCT.md](https://github.com/Arjunkalidas/fpe-nodejs/blob/develop/CODE_OF_CONDUCT.md) before contributing to this repository, as well as use the document as a reference when you interact with fellow software developers and contributors.
 
 ## Future updates
