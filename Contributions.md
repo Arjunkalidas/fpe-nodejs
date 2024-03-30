@@ -34,9 +34,9 @@ But, here we'll be showing how we expect the message for a pull request should b
 * Mention the change or changes, if there are more than one, as bullet points in the description field
 ### Sample PR template below:
   ---
-  `Branch Name`: CodeCommentsInUtils/develop\
-  `Title`: Adding code comments in CommonUtils.js\
-  `Description:`
+  #### Branch Name: CodeCommentsInUtils/develop\
+  #### Title: Adding code comments in CommonUtils.js\
+  #### Description:
    - added code comments for utility functions in CommonUtils.js
    - added method descriptions in block comments
    - cleaned up typos and redundant comments
@@ -46,7 +46,13 @@ But, here we'll be showing how we expect the message for a pull request should b
 
 To execute the module, use the command below:
 
-```node --trace-uncaught index.js```
+First install all the npm dependencies using the command below:
+
+```npm install```
+
+then, to execute the sample code in index.js, please run the command below:
+
+```node index.js```
 
 and to execute tests, execute:
 
