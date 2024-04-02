@@ -48,9 +48,9 @@ For more information, on how to get involved and contribute, please head over to
 Refer to the [CODE_OF_CONDUCT.md](https://github.com/Arjunkalidas/fpe-nodejs/blob/develop/CODE_OF_CONDUCT.md) before contributing to this repository, as well as use the document as a reference when you interact with fellow software developers and contributors.
 
 ## Future updates
-- The library supports numbers, alphanumeric and alphabets as input and tweak, but that could be expanded to support a limited set of special characters
-- The encryption mode used is AES ECB, but planning to support CBC mode soon
-- Option to use different encryption modes such as FF1 & FF3, or ECB, CBC with/without padding are ideas for enhancement
+- The library supports numerical and alphanumerical characters input and tweak, but not special characters. The future goal is to build support for a limited set of special characters
+- The encryption mode used is AES ECB. Support for CBC mode coming soon
+- Option to use different encryption modes such as FF3, and encryption schemes like CBC with/without padding are ideas for enhancement
 
 ## Inspiration
 I was inspired by the 2 libraries below and I would like to express my acknowledgements to the developers of these repos.
