@@ -3,8 +3,7 @@
 ## How to contribute?
 
 We are looking for all sorts of contributions including but not limited to defect fixes, test coverage, and documentation.
-If it is a feature request, please discuss with us as we have certain defined roadmap and some of the new suggestions may not be priority right now. But if the feature is viable and adds significant value immediately to the consumer, we will bump it up to the top of the backlog.
-
+If it is a feature request, please discuss with us since we have certain defined roadmap and some of the new suggestions may not be priority right now. But if the feature is viable and adds significant value immediately to the library & community, we will bump it up to the top of the backlog.
 
 ## Steps to create a Pull Request
 
@@ -32,10 +31,11 @@ But, here we'll be showing how we expect the message for a pull request should b
     * dependency-upgrade,
     * vulnerability & documentation
 * Mention the change or changes, if there are more than one, as bullet points in the description field
+  
 ### Sample PR template below:
   ---
-  #### Branch Name: CodeCommentsInUtils/develop\
-  #### Title: Adding code comments in CommonUtils.js\
+  #### Branch Name: CodeCommentsInUtils/develop
+  #### Title: Adding code comments in CommonUtils.js
   #### Description:
    - added code comments for utility functions in CommonUtils.js
    - added method descriptions in block comments
@@ -44,18 +44,18 @@ But, here we'll be showing how we expect the message for a pull request should b
 
 ## Testing
 
-To execute the module, use the command below:
+To execute the module, follow the steps.
 
-First install all the npm dependencies using the command below:
+- Install all the npm dependencies using the command below:
 
-```npm install```
+   ```npm install```
 
-then, to execute the sample code in index.js, please run the command below:
+- Execute the sample code in index.js, please run the command below:
 
-```node index.js```
+   ```node index.js```
 
-and to execute tests, execute:
+- Execute tests, execute:
 
-```npm run test```
+   ```npm run test```
 
 Note: Test suite is a WIP, feel free to contribute to improve the test coverage and testability of the code.
