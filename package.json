@@ -1,6 +1,6 @@
 {
     "name": "fpe-node",
-    "version": "1.2.80",
+    "version": "1.2.81",
     "description": "A nodejs library for Format Preserving Encryption that encrypts & decrypts the input in FF1 mode",
     "main": "index.js",
     "scripts": {
