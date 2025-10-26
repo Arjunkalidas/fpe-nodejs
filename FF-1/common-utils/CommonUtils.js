@@ -396,6 +396,7 @@ class CommonUtils {
         if(!sanitizedInput) {
             throw ("sanitizedInput cannot be empty or a null value");
         }
+        RADIX = 10;
         updatedCharMap = charMap.convertToMap(this.getNumericCharacters());
         let code, i, len;
         for(i=0, len=sanitizedInput.length; i < len; i++) {
